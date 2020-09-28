@@ -1,0 +1,7 @@
+#Bio Informatics Project
+
+#Combining all the hsp70 gene sequences into one file
+
+for file in hsp*.fasta
+do
+
