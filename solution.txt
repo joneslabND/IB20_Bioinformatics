@@ -8,13 +8,13 @@
 for file in ref_sequences/hsp*.fasta
 do
 
-cat $file >> hsp_sequence_combination
+cat $file >> hsp_combined_sequence.txt
 
 done
 
 #Aligning the Sequence Using Muscle
 
-../bin/muscle3.8.31_i86linux64 -in hsp_sequence_combination -out muscle_result_hsp
+../bin/muscle3.8.31_i86linux64 -in hsp_combined_sequence.txt -out muscle_result_hsp
 
 #Creating a profile from hmmer
 
@@ -26,10 +26,48 @@ mkdir hmmr_search_results_hsp
 
 #Creating the search files for hsp in each proteome
 
-for file in proteomes/*.fasta
+cd proteomes
+ 
+for file in *.fasta
+
 do
-../bin/hmmr/hmmseach --tblout hmmr_search_$file hmmr_profile_hsp $file
+
+../../bin/hmmr/hmmsearch --tblout ../hmmr_search_results_hsp/hsp_search_$file ../hmmr_profile_hsp $file
+
 done
 
-#Search the hsp files for hsp70 matches
-grep -E "Hsp70" hmmr_search_results_hsp/*.fasta  
+cd ..
+
+
+#Now doing the Same for the McAgene. Combining the sequences to one file
+
+for file in ref_sequences/mcr*.fasta
+do
+cat $file >> mcr_combined_sequence.txt
+done
+
+#Alignment Using Muscle 
+
+../bin/muscle3.8.31_i86linux64 -in mcr_combined_sequence.txt -out muscle_result_mcr
+
+#Creating a profile from hmmer
+
+../bin/hmmr/hmmbuild hmmr_profile_mcr muscle_result_mcr
+
+#Creating a directory for hmmr search results
+
+mkdir hmmr_search_results_mcr
+
+#Creating the search files for msr in each proteome
+
+cd proteomes
+
+for file in *.fasta
+
+do 
+
+../../bin/hmmr/hmmsearch --tblout ../hmmr_search_results_mcr/mcr_search_$file ../hmmr_profile_mcr $file
+
+done
+
+cd ..
