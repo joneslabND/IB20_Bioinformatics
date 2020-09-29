@@ -1,7 +1,35 @@
 #Bio Informatics Project
 
+#Assume we are in the IB20_Bioinformatics Directory in the home of your crc
+#Hmmr and Muscle should be located in the bin of the home of your crc
+
 #Combining all the hsp70 gene sequences into one file
 
-for file in hsp*.fasta
+for file in ref_sequences/hsp*.fasta
 do
 
+cat $file >> hsp_sequence_combination
+
+done
+
+#Aligning the Sequence Using Muscle
+
+../bin/muscle3.8.31_i86linux64 -in hsp_sequence_combination -out muscle_result_hsp
+
+#Creating a profile from hmmer
+
+../bin/hmmr/hmmbuild hmmr_profile_hsp muscle_result_hsp
+
+#Creating a directory for hmmr search results
+
+mkdir hmmr_search_results_hsp
+
+#Creating the search files for hsp in each proteome
+
+for file in proteomes/*.fasta
+do
+../bin/hmmr/hmmseach --tblout hmmr_search_$file hmmr_profile_hsp $file
+done
+
+#Search the hsp files for hsp70 matches
+grep -E "Hsp70" hmmr_search_results_hsp/*.fasta  
