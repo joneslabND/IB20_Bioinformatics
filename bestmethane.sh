@@ -22,7 +22,7 @@ cat ref_sequences/mcrAgene* > allmcrA.fasta
 cat ref_sequences/hsp* > allhsp.fasta
 for file in HMMaligned* 
 do 
-~/bin/hmmer-3.3.1/src/hmmsearch -o table.fa $file allmcrA.fasta >> table.fa
-~/bin/hmmer-3.3.1/src/hmmsearch -o table.fa $file allhsp.fasta >> table.fa
+~/bin/hmmer-3.3.1/src/hmmsearch -o tables$file.fa $file allmcrA.fasta >> table.fa
+~/bin/hmmer-3.3.1/src/hmmsearch -o table$file.fa $file allhsp.fasta >> table.fa
 done
 
