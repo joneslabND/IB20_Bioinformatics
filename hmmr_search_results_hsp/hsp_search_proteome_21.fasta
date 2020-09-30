@@ -1,0 +1,18 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+NP_951095.1          -          muscle_result_hsp    -           1.8e-285  945.7  20.0  5.6e-251  831.8  15.0   2.0   1   1   1   2   2   2   2 molecular chaperone DnaK 
+NP_953138.1          -          muscle_result_hsp    -            1.8e-12   44.0   3.4     4e-12   42.8   3.4   1.9   1   1   0   1   1   1   1 rod shape-determining protein MreB 
+NP_951790.1          -          muscle_result_hsp    -            9.5e-07   25.0   0.3   1.4e-06   24.5   0.3   1.2   1   0   0   1   1   1   1 rod shape-determining protein MreB 
+NP_951094.1          -          muscle_result_hsp    -             0.0088   11.9   0.6     0.011   11.6   0.6   1.1   1   0   0   1   1   1   1 heat shock protein GrpE 
+NP_951605.1          -          muscle_result_hsp    -               0.71    5.7  10.2       1.1    5.1  10.2   1.2   1   0   0   1   1   1   0 DNA mismatch repair ATPase MutS-2 
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      ../hmmr_profile_hsp
+# Target file:     proteome_21.fasta
+# Option settings: ../../bin/hmmr/hmmsearch --tblout ../hmmr_search_results_hsp/hsp_search_proteome_21.fasta ../hmmr_profile_hsp proteome_21.fasta 
+# Current dir:     /afs/crc.nd.edu/user/j/jday4/IB20_Bioinformatics/proteomes
+# Date:            Wed Sep 30 11:04:31 2020
+# [ok]

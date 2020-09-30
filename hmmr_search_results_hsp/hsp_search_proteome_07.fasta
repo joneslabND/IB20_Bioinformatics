@@ -1,0 +1,15 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_012106756.1       -          muscle_result_hsp    -           7.1e-294  973.0  23.8  8.2e-294  972.8  23.8   1.0   1   0   0   1   1   1   1 molecular chaperone DnaK 
+WP_012107167.1       -          muscle_result_hsp    -           2.3e-292  968.0  18.8  2.7e-292  967.8  18.8   1.0   1   0   0   1   1   1   1 molecular chaperone DnaK 
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      ../hmmr_profile_hsp
+# Target file:     proteome_07.fasta
+# Option settings: ../../bin/hmmr/hmmsearch --tblout ../hmmr_search_results_hsp/hsp_search_proteome_07.fasta ../hmmr_profile_hsp proteome_07.fasta 
+# Current dir:     /afs/crc.nd.edu/user/j/jday4/IB20_Bioinformatics/proteomes
+# Date:            Wed Sep 30 11:04:30 2020
+# [ok]
