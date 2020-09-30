@@ -8,12 +8,12 @@
 
 # Merge reference sequences into a single file
 for file in ref_sequences/hsp70gene_*.fasta
-cat file | >> hsp70ref.fasta
+do cat $file >> hsp70ref.fasta
 #do sed '/^>/d' $file >> hsp70ref.fasta
 done
 
 for file in ref_sequences/mcrAgene_*.fasta
-cat file | >> mcrAref.fasta
+do cat $file >> mcrAref.fasta
 #do sed '/^>/d' $file >> mcrAref.fasta
 done
 
@@ -22,7 +22,7 @@ done
 
 # ./hmmbuild to build a HMM based on the output of muscle, above
 
-# ./muscle for Hsp70 gene, to align these sequences
+./muscle -in hsp70ref.fasta -out hsp70.aligned #for Hsp70 gene, to align these sequences
 
 #./hmmbuild to build a HMM based on the output of muscle, above
 
