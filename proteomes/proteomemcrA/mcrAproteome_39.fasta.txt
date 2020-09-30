@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_012037073.1       -          hspgenemuscle        -                  0 1049.5  25.7         0 1049.4  25.7   1.0   1   0   0   1   1   1   1 molecular chaperone DnaK 
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      ../ref_sequences/hspgenehmmr.txt
+# Target file:     proteome_39.fasta
+# Option settings: ../../bin/hmmsearch --tblout proteomemcrA/mcrAproteome_39.fasta.txt ../ref_sequences/hspgenehmmr.txt proteome_39.fasta 
+# Current dir:     /afs/crc.nd.edu/user/l/lklein1/Private/IB20_Bioinformatics/proteomes
+# Date:            Wed Sep 30 15:38:10 2020
+# [ok]
