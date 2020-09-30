@@ -8,15 +8,15 @@
 
 # Merge reference sequences into a single file
 for file in ref_sequences/hsp70gene_*.fasta
-do sed '/^>/d' $file > hsp70ref.fasta
+do sed '/^>/d' $file >> hsp70ref.fasta
 done
 
 for file in ref_sequences/mcrAgene_*.fasta
-do sed '/^>/d' $file > mcrAref.fasta
+do sed '/^>/d' $file >> mcrAref.fasta
 done
 
 
-# ./muscle, for McrA first on mcrAref.fasta, to align the sequences
+./muscle -in mcrAref.fasta -out mcrA.aligned  #for McrA first on mcrAref.fasta, to align the sequences
 
 # ./hmmbuild to build a HMM based on the output of muscle, above
 
@@ -25,3 +25,5 @@ done
 #./hmmbuild to build a HMM based on the output of muscle, above
 
 # ./hmmsearch, for 50 times per for the methanogen gene, then output 
+
+# ./take only the proteomes that are identified as methanogens and then do ./hmmsearch again to find ph resistant sequences only in these proteomes
