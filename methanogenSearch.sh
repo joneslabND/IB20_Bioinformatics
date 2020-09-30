@@ -16,3 +16,12 @@ do sed '/^>/d' $file > mcrAref.fasta
 done
 
 
+# ./muscle, for McrA first on mcrAref.fasta, to align the sequences
+
+# ./hmmbuild to build a HMM based on the output of muscle, above
+
+# ./muscle for Hsp70 gene, to align these sequences
+
+#./hmmbuild to build a HMM based on the output of muscle, above
+
+# ./hmmsearch, for 50 times per for the methanogen gene, then output 
