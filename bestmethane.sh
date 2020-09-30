@@ -18,4 +18,8 @@ done
 
 # for loop to search sequence for conserved mcrA and HSP70 genes
 
-
+for file in HMM*
+do
+~/bin/hmmer-3.3.1/src/hmmsearch --tblout mcra$file $file ref_sequences/mcrAgene* >> table$file
+~/bin/hmmer-3.3.1/src/hmmsearch --tblout hsp$file $file ref_sequences/hsp70* >> table$file
+done
