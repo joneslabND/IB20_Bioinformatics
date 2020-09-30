@@ -1,0 +1,4 @@
+#Compile all parts of the reference sequences (hsp and mcrA) together
+cat hsp*  >> hspgenefull.fasta
+cat mcrA* >> mcrAgenefull.fasta
+
