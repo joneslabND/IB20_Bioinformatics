@@ -5,6 +5,8 @@
 
 # Make sure you have muscle, hmmsearch, hmmbuild, and the proteome and reference
 # sequence folders in your current directory
+rm hsp70ref.fasta
+rm mcrAref.fasta
 
 # Merge reference sequences into a single file
 for file in ref_sequences/hsp70gene_*.fasta
