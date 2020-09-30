@@ -8,11 +8,13 @@
 
 # Merge reference sequences into a single file
 for file in ref_sequences/hsp70gene_*.fasta
-do sed '/^>/d' $file >> hsp70ref.fasta
+cat file | >> hsp70ref.fasta
+#do sed '/^>/d' $file >> hsp70ref.fasta
 done
 
 for file in ref_sequences/mcrAgene_*.fasta
-do sed '/^>/d' $file >> mcrAref.fasta
+cat file | >> mcrAref.fasta
+#do sed '/^>/d' $file >> mcrAref.fasta
 done
 
 
