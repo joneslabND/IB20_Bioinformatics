@@ -2,10 +2,10 @@
 
 for sequence in mcrA*
 do
-cat $sequence >>../muscle_files/ mcrAsequences.txt
+cat $sequence >> ../muscle_files/mcrAsequences.txt
 done
 
 for sequence in hsp70*
 do
-cat $sequence >> hsp70sequences.txt
+cat $sequence >> ../muscle_files/hsp70sequences.txt
 done 
