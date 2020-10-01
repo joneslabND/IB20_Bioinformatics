@@ -2,7 +2,7 @@
 cat ref_sequences/hsp70gene_[0-9][0-9].fasta > hsp70refs
 cat ref_sequences/mcrAgene_[0-9][0-9].fasta > mcrArefs
 
-#align reference sequence for the two gene from each file containing reference sequencea for each gene and make two files named 'hsp70muscleresult' and 'mcrAmuscleresult'
+#align reference sequence for the two gene from each file containing reference sequences for each gene and make two files named 'hsp70muscleresult' and 'mcrAmuscleresult'
 muscle -in hsp70refs -out hsp70muscleresult
 muscle -in mcrArefs -out mcrAmuscleresult
 
