@@ -1,100 +1,51 @@
-../proteomes/proteome_01.fasta.hmmtxt:
-4
-../proteomes/proteome_02.fasta.hmmtxt:
-2
-../proteomes/proteome_03.fasta.hmmtxt:
-3
-../proteomes/proteome_04.fasta.hmmtxt:
-4
-../proteomes/proteome_05.fasta.hmmtxt:
-2
-../proteomes/proteome_06.fasta.hmmtxt:
-0
-../proteomes/proteome_07.fasta.hmmtxt:
-2
-../proteomes/proteome_08.fasta.hmmtxt:
-5
-../proteomes/proteome_09.fasta.hmmtxt:
-1
-../proteomes/proteome_10.fasta.hmmtxt:
-3
-../proteomes/proteome_11.fasta.hmmtxt:
-6
-../proteomes/proteome_12.fasta.hmmtxt:
-6
-../proteomes/proteome_13.fasta.hmmtxt:
-3
-../proteomes/proteome_14.fasta.hmmtxt:
-2
-../proteomes/proteome_15.fasta.hmmtxt:
-1
-../proteomes/proteome_16.fasta.hmmtxt:
-1
-../proteomes/proteome_17.fasta.hmmtxt:
-4
-../proteomes/proteome_18.fasta.hmmtxt:
-8
-../proteomes/proteome_19.fasta.hmmtxt:
-1
-../proteomes/proteome_20.fasta.hmmtxt:
-3
-../proteomes/proteome_21.fasta.hmmtxt:
-0
-../proteomes/proteome_22.fasta.hmmtxt:
-0
-../proteomes/proteome_23.fasta.hmmtxt:
-2
-../proteomes/proteome_24.fasta.hmmtxt:
-2
-../proteomes/proteome_25.fasta.hmmtxt:
-0
-../proteomes/proteome_26.fasta.hmmtxt:
-1
-../proteomes/proteome_27.fasta.hmmtxt:
-1
-../proteomes/proteome_28.fasta.hmmtxt:
-1
-../proteomes/proteome_29.fasta.hmmtxt:
-0
-../proteomes/proteome_30.fasta.hmmtxt:
-1
-../proteomes/proteome_31.fasta.hmmtxt:
-7
-../proteomes/proteome_32.fasta.hmmtxt:
-4
-../proteomes/proteome_33.fasta.hmmtxt:
-0
-../proteomes/proteome_34.fasta.hmmtxt:
-2
-../proteomes/proteome_35.fasta.hmmtxt:
-1
-../proteomes/proteome_36.fasta.hmmtxt:
-3
-../proteomes/proteome_37.fasta.hmmtxt:
-1
-../proteomes/proteome_38.fasta.hmmtxt:
-1
-../proteomes/proteome_39.fasta.hmmtxt:
-1
-../proteomes/proteome_40.fasta.hmmtxt:
-2
-../proteomes/proteome_41.fasta.hmmtxt:
-1
-../proteomes/proteome_42.fasta.hmmtxt:
-3
-../proteomes/proteome_43.fasta.hmmtxt:
-3
-../proteomes/proteome_44.fasta.hmmtxt:
-1
-../proteomes/proteome_45.fasta.hmmtxt:
-3
-../proteomes/proteome_46.fasta.hmmtxt:
-2
-../proteomes/proteome_47.fasta.hmmtxt:
-1
-../proteomes/proteome_48.fasta.hmmtxt:
-1
-../proteomes/proteome_49.fasta.hmmtxt:
-3
-../proteomes/proteome_50.fasta.hmmtxt:
-3
+hspfile, number of matches
+../proteomes/proteome_01.fasta.hmmtxt, cat ../proteomes/proteome_01.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_02.fasta.hmmtxt, cat ../proteomes/proteome_02.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_03.fasta.hmmtxt, cat ../proteomes/proteome_03.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_04.fasta.hmmtxt, cat ../proteomes/proteome_04.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_05.fasta.hmmtxt, cat ../proteomes/proteome_05.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_06.fasta.hmmtxt, cat ../proteomes/proteome_06.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_07.fasta.hmmtxt, cat ../proteomes/proteome_07.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_08.fasta.hmmtxt, cat ../proteomes/proteome_08.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_09.fasta.hmmtxt, cat ../proteomes/proteome_09.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_10.fasta.hmmtxt, cat ../proteomes/proteome_10.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_11.fasta.hmmtxt, cat ../proteomes/proteome_11.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_12.fasta.hmmtxt, cat ../proteomes/proteome_12.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_13.fasta.hmmtxt, cat ../proteomes/proteome_13.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_14.fasta.hmmtxt, cat ../proteomes/proteome_14.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_15.fasta.hmmtxt, cat ../proteomes/proteome_15.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_16.fasta.hmmtxt, cat ../proteomes/proteome_16.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_17.fasta.hmmtxt, cat ../proteomes/proteome_17.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_18.fasta.hmmtxt, cat ../proteomes/proteome_18.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_19.fasta.hmmtxt, cat ../proteomes/proteome_19.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_20.fasta.hmmtxt, cat ../proteomes/proteome_20.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_21.fasta.hmmtxt, cat ../proteomes/proteome_21.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_22.fasta.hmmtxt, cat ../proteomes/proteome_22.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_23.fasta.hmmtxt, cat ../proteomes/proteome_23.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_24.fasta.hmmtxt, cat ../proteomes/proteome_24.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_25.fasta.hmmtxt, cat ../proteomes/proteome_25.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_26.fasta.hmmtxt, cat ../proteomes/proteome_26.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_27.fasta.hmmtxt, cat ../proteomes/proteome_27.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_28.fasta.hmmtxt, cat ../proteomes/proteome_28.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_29.fasta.hmmtxt, cat ../proteomes/proteome_29.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_30.fasta.hmmtxt, cat ../proteomes/proteome_30.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_31.fasta.hmmtxt, cat ../proteomes/proteome_31.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_32.fasta.hmmtxt, cat ../proteomes/proteome_32.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_33.fasta.hmmtxt, cat ../proteomes/proteome_33.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_34.fasta.hmmtxt, cat ../proteomes/proteome_34.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_35.fasta.hmmtxt, cat ../proteomes/proteome_35.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_36.fasta.hmmtxt, cat ../proteomes/proteome_36.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_37.fasta.hmmtxt, cat ../proteomes/proteome_37.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_38.fasta.hmmtxt, cat ../proteomes/proteome_38.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_39.fasta.hmmtxt, cat ../proteomes/proteome_39.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_40.fasta.hmmtxt, cat ../proteomes/proteome_40.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_41.fasta.hmmtxt, cat ../proteomes/proteome_41.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_42.fasta.hmmtxt, cat ../proteomes/proteome_42.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_43.fasta.hmmtxt, cat ../proteomes/proteome_43.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_44.fasta.hmmtxt, cat ../proteomes/proteome_44.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_45.fasta.hmmtxt, cat ../proteomes/proteome_45.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_46.fasta.hmmtxt, cat ../proteomes/proteome_46.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_47.fasta.hmmtxt, cat ../proteomes/proteome_47.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_48.fasta.hmmtxt, cat ../proteomes/proteome_48.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_49.fasta.hmmtxt, cat ../proteomes/proteome_49.fasta.hmmtxt | grep ^WP_ | wc -l
+../proteomes/proteome_50.fasta.hmmtxt, cat ../proteomes/proteome_50.fasta.hmmtxt | grep ^WP_ | wc -l

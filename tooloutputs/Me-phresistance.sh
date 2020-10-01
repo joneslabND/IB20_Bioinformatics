@@ -26,11 +26,11 @@ which is involved in protein biogenesis and refolding for stress resistance.
 #done
 
 
-echo hspfile:m
+echo hspfile, number of matches >hsp70matches.txt
 for proteomefile in ../proteomes/*fasta.hmmtxt
 do
-echo $proteomefile: >>hsp70matches.txt
-cat $proteomefile | grep ^WP_ | wc -l >> hsp70matches.txt ; ech 
+var1="cat $proteomefile | grep ^WP_ | wc -l" 
+echo "$proteomefile, $var1" >>hsp70matches.txt
 done
 
 
