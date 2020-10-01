@@ -16,7 +16,7 @@ cat $sequence >> ../working_files/hsp70sequences.fasta
 done 
 
 #create a proteomedatabase with all 50 proteomes
-cd../proteomes
+cd ../proteomes
 for number in {01..50}; do cat proteome_$number.fasta | sed "s/>/>proteome_$number/g" >> proteomedatabase.fasta; done
 
 cd ../working_files
@@ -24,12 +24,12 @@ cd ../working_files
 #find proteomes with mcrA gene matches
 ../../bin/./muscle -in mcrAsequences.fasta -out mcrAgenefull_alignment
 ../../bin/./hmmbuild mcrAgene_build mcrAgenefull_alignment
-../../bin/./hmmsearch --tblout mcrA_match.tbl mcrAgene_build proteomedatabase.fasta 
+../../bin/./hmmsearch --tblout mcrA_match.tbl mcrAgene_build ../proteomes/proteomedatabase.fasta 
 
 # find proteomes with hsp70 gene matches
 ../../bin/muscle -in hsp70sequences.fasta -out hsp70genefull_alignment
 ../../bin/hmmbuild hsp70gene_build hsp70genefull_alignment
-../../bin/hmmsearch --tblout hsp70_match.tbl hsp70gene_build proteomedatabase.fasta
+../../bin/hmmsearch --tblout hsp70_match.tbl hsp70gene_build ../proteomes/proteomedatabase.fasta
 
 # create text  files with candidates for each gene
 grep -v "#" mcrA_match.tbl | cut -d " " -f 1 | tr -d "WP" >> mcrAcandidates.txt
