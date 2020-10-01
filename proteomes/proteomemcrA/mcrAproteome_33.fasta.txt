@@ -5,9 +5,9 @@
 # Program:         hmmsearch
 # Version:         3.3.1 (Jul 2020)
 # Pipeline mode:   SEARCH
-# Query file:      ../ref_sequences/hspgenehmmr.txt
+# Query file:      ../ref_sequences/mcrAgenehmmr.txt
 # Target file:     proteome_33.fasta
-# Option settings: ../../bin/hmmsearch --tblout proteomemcrA/mcrAproteome_33.fasta.txt ../ref_sequences/hspgenehmmr.txt proteome_33.fasta 
+# Option settings: ../../bin/hmmsearch --tblout proteomemcrA/mcrAproteome_33.fasta.txt ../ref_sequences/mcrAgenehmmr.txt proteome_33.fasta 
 # Current dir:     /afs/crc.nd.edu/user/l/lklein1/Private/IB20_Bioinformatics/proteomes
-# Date:            Wed Sep 30 15:38:09 2020
+# Date:            Thu Oct  1 16:28:10 2020
 # [ok]

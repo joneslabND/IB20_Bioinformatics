@@ -1,15 +1,14 @@
 #                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
 # target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
 #------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
-WP_012106756.1       -          hspgenemuscle        -           7.1e-294  973.0  23.7  8.1e-294  972.8  23.7   1.0   1   0   0   1   1   1   1 molecular chaperone DnaK 
-WP_012107167.1       -          hspgenemuscle        -           2.5e-292  967.9  18.7  2.9e-292  967.7  18.7   1.0   1   0   0   1   1   1   1 molecular chaperone DnaK 
+WP_012106121.1       -          mcrAgenemuscle       -                  0 1015.4   0.1         0 1015.2   0.1   1.0   1   0   0   1   1   1   1 coenzyme-B sulfoethylthiotransferase subunit alpha 
 #
 # Program:         hmmsearch
 # Version:         3.3.1 (Jul 2020)
 # Pipeline mode:   SEARCH
-# Query file:      ../ref_sequences/hspgenehmmr.txt
+# Query file:      ../ref_sequences/mcrAgenehmmr.txt
 # Target file:     proteome_07.fasta
-# Option settings: ../../bin/hmmsearch --tblout proteomemcrA/mcrAproteome_07.fasta.txt ../ref_sequences/hspgenehmmr.txt proteome_07.fasta 
+# Option settings: ../../bin/hmmsearch --tblout proteomemcrA/mcrAproteome_07.fasta.txt ../ref_sequences/mcrAgenehmmr.txt proteome_07.fasta 
 # Current dir:     /afs/crc.nd.edu/user/l/lklein1/Private/IB20_Bioinformatics/proteomes
-# Date:            Wed Sep 30 15:38:06 2020
+# Date:            Thu Oct  1 16:28:08 2020
 # [ok]
