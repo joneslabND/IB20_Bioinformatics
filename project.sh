@@ -32,8 +32,8 @@ cd ../working_files
 ../../bin/hmmsearch --tblout hsp70_match.tbl hsp70gene_build ../proteomes/proteomedatabase.fasta
 
 # create text  files with candidates for each gene
-grep -v "#" mcrA_match.tbl | cut -d " " -f 1 | tr -d "WP" >> mcrAcandidates.txt
-grep -v "#" hsp70_match.tbl | cut -d " " -f 1 | tr -d [WNY]P >> hsp70candidates.txt
+grep -v "#" mcrA_match.tbl | cut -d "_" -f 1,2 | tr -d "WP" >> mcrAcandidates.txt
+grep -v "#" hsp70_match.tbl | cut -d "_" -f 1,2 | tr -d [WNY]P >> hsp70candidates.txt
 
 # compare files to see which proteomes contain both genes and create a text final with pH resistant methanogens
 grep -f mcrAcandidates.txt hsp70candidates.txt | sort | uniq >> FinalCandidates.txt 
