@@ -1,6 +1,7 @@
 # general: run in parent directory of proteomes and ref_sequences directory
-# usage: bash genefinder.sh 1-compiled-hsp70-refseq-name 2-compiled-mcrA-refseq-name 3-aligned-hsp70 4-aligned-mcrA 5-hsp70-built 6-mcrA-built 7-hsp70-hits 8-mcrA-hits 9-hsp70proteomes 10-mcrAproteomes 11-combined-proteomes 12-candidate-protomes
-# for example: bash genefinder.sh hsp70comp.fasta mcrAcomp.fasta hsp70.aligned mcrA.aligned hsp70.built mcrA.built hsp70proteome_hits.txt mcrAproteome_hits.txt hsp70proteomes.txt mcrAproteomes.txt allproteomes.txt CANDIDATES.txt
+# usage: bash genefinder.sh 1-compiled-hsp70-refseq-name 2-compiled-mcrA-refseq-name 3-aligned-hsp70 4-aligned-mcrA 5-hsp70-built 6-mcrA-built 7-hsp70-hits 8-mcrA-hits 9-hsp70proteomes 10-mcrAproteomes 11-combined-proteomes
+# for example: bash genefinder.sh hsp70comp.fasta mcrAcomp.fasta hsp70.aligned mcrA.aligned hsp70.built mcrA.built hsp70proteome_hits.txt mcrAproteome_hits.txt hsp70proteomes.txt mcrAproteomes.txt allproteomes.txt
+# files for project assignment: CANDIDATES.txt hsp70proteome_hits.txt mcrAproteome_hits.txt and this script
 
 # compiles all genes into two files to prep for alignment
 
@@ -66,7 +67,7 @@ grep -v "#" searchresults/*.hsp70 | grep -o "proteome_[0-9][0-9]" | sort | uniq 
 grep -v	"#" searchresults/*.mcrA | grep -o "proteome_[0-9][0-9]" | sort | uniq > $10
 
 cat $9 $10 > $11 
-cat $11 | sort | uniq -d > $12
+cat $11 | sort | uniq -d > CANDIDATES.txt
 
-# outputs from above: hsp70proteomes.txt($9) mcrAproteomes.txt($10) allproteomes.txt($11) CANDIDATES.txt($12)
+# outputs from above: hsp70proteomes.txt($9) mcrAproteomes.txt($10) allproteomes.txt($11) CANDIDATES.txt
 
