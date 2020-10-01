@@ -38,3 +38,6 @@ grep -v "#" hsp70_match.tbl | cut -d "_" -f 1,2 | tr -d [WNY]P >> hsp70candidate
 # compare files to see which proteomes contain both genes and create a text final with pH resistant methanogens
 grep -f mcrAcandidates.txt hsp70candidates.txt | sort | uniq >> FinalCandidates.txt 
 
+#make a table with summary of all outputs
+for number in {01..50}; do export hsp70var_$number=$(grep -c "proteome_$number" hsp70candidates.txt) ; done
+for number in {01..50} ; do eval echo proteome_$number,\$hsp70var_$number ; done 
