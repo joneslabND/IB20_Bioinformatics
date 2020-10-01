@@ -30,7 +30,7 @@ cd ../working_files
 ../../bin/hmmbuild hsp70gene_build hsp70genefull_alignment
 ../../bin/hmmsearch --tblout hsp70_match.tbl hsp70gene_build [[[[[results from mcrA]]]
 
-# grep?? 
+# grep -v "#" mcrAmatch.tbl | cut -d " " -f 1 
 # need to sort by most copies of hsp70
 # head, tail, cut, >> file with proteome names
 
