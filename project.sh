@@ -15,6 +15,9 @@ do
 cat $sequence >> ../working_files/hsp70sequences.fasta
 done 
 
+#create a proteomedatabase with all 50 proteomes
+cd../proteomes
+for number in {01..50}; do cat proteome_$number.fasta | sed "s/>/>proteome_$number/g" >> proteomedatabase.fasta; done
 
 cd ../working_files
 
