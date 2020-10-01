@@ -4,6 +4,12 @@ do
 cat $file >> totalmcrAgene.fasta
 done
 
+# create aligned mcrA genes with muscle
+~/bin/muscle -in totalmcrAgene.fasta -out alignedmcrAgenes.fasta
+
+# create mcrA gene search image
+~/bin/bin/hmmbuild mcrAsearchimage.fasta alignedmcrAgenes.fasta
+
 # hsp70 total genes file
 for file in ref_sequences/hsp70gene*.fasta
 do
