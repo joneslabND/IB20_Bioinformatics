@@ -21,14 +21,14 @@ for number in {01..50}; do cat proteome_$number.fasta | sed "s/>/>proteome_$numb
 
 cd ../working_files
 
-../../bin/muscle -in mcrAsequences.fasta -out mcrAgenefull_alignment
-../../bin/hmmbuild mcrAgene_build mcrAgenefull_alignment
-../../bin/hmmsearch --tblout mcrAgene_search mcrAgene_build [[[[[proteomes]]]]]]] 
+../../bin/./muscle -in mcrAsequences.fasta -out mcrAgenefull_alignment
+../../bin/./hmmbuild mcrAgene_build mcrAgenefull_alignment
+../../bin/./hmmsearch --tblout mcrA_match.tbl mcrAgene_build proteomedatabase.fasta 
 
 # need to get results from mcrA into file that hmmer can read
 ../../bin/muscle -in hsp70sequences.fasta -out hsp70genefull_alignment
 ../../bin/hmmbuild hsp70gene_build hsp70genefull_alignment
-../../bin/hmmsearch --tblout hsp70gene_search hsp70gene_build [[[[[results from mcrA]]]
+../../bin/hmmsearch --tblout hsp70_match.tbl hsp70gene_build [[[[[results from mcrA]]]
 
 # grep?? 
 # need to sort by most copies of hsp70
