@@ -26,3 +26,9 @@ match2=$(cat mcrA_$file | grep -v '#' | wc -l)
 echo "$file,$match1,$match2" | sed 's/.fasta//g'
 done
 
+#Removes all the hmmsearchh files created in the proteomes folder so the code won't read those .fasta files when you use the code again.
+rm hsp70_proteome_[0-9][0-9].fasta
+rm mcrA_proteome_[0-9][0-9].fasta
+
+
+
