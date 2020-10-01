@@ -1,0 +1,28 @@
+#shell script to search each genome for the
+#genes of interest, MrcA and HSP70,  along with production of a summary table collating the results of all
+#searches
+
+
+#HSP references combined into one ref file, muscle used to build alignment
+for file in ref_sequences/hsp*.fasta
+do
+	cat $file  >> hsp.ref
+done
+
+~/Private/bin/muscle -in hsp.ref -out hsp.alignment
+
+#now hmmer can be used to build a profile from this alignment
+~/Private/bin/hammer/hmmbuild hsp.profile hsp.alignment
+
+#using hmmsearch to query each genome for all 50 proteomes with built profile
+#for loop allows us to create a file for each proteome
+
+for file in proteomes/*.fasta
+do
+  	../bin/hammer/hmmsearch --tblout $file.hmm hsp.profile  $file
+done
+
+for hmmfile in proteomes/*.hmm
+do
+  	echo $hmmfile | cat $hmmfile | grep -v "#" | wc -l 
+done
