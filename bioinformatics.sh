@@ -8,7 +8,7 @@ done
 ~/bin/muscle -in totalmcrAgene.fasta -out alignedmcrAgenes.fasta
 
 # create mcrA gene search image
-~/bin/bin/hmmbuild mcrAsearchimage.fasta alignedmcrAgenes.fasta
+~/bin/bin/hmmbuild mcrAsearchimage.hmm alignedmcrAgenes.fasta
 
 # hsp70 total genes file
 for file in ref_sequences/hsp70gene*.fasta
@@ -20,4 +20,16 @@ done
 ~/bin/muscle -in totalhsp70gene.fasta -out alignedhsp70genes.fasta
 
 # create hsp70 gene search image
-~/bin/bin/hmmbuild hsp70searchimage.fasta alignedhsp70genes.fasta
+~/bin/bin/hmmbuild hsp70searchimage.hmm alignedhsp70genes.fasta
+
+# search proteomes for mcrA image
+for file in proteomes/proteome_*.fasta
+do
+~/bin/bin/hmmsearch --tblout mcrAresults.fasta mcrAsearchimage.hmm $file
+done
+
+# search proteomes for hsp70 image
+for file in proteomes/proteome_*.fasta
+do
+~/bin/bin/hmmsearch --tblout hsp70results.fasta hsp70searchimage.hmm $file
+done
