@@ -30,7 +30,10 @@ cd ../working_files
 ../../bin/hmmbuild hsp70gene_build hsp70genefull_alignment
 ../../bin/hmmsearch --tblout hsp70_match.tbl hsp70gene_build [[[[[results from mcrA]]]
 
-# grep -v "#" mcrAmatch.tbl | cut -d " " -f 1 
-# need to sort by most copies of hsp70
-# head, tail, cut, >> file with proteome names
+# create files with candidates for each gene
+grep -v "#" mcrA_match.tbl | cut -d " " -f 1 | tr -d "WP" >> mcrAcandidates.txt
+grep -v "#" hsp70_match.tbl | cut -d " " -f 1 | tr -d [WNY]P >> hsp70candidates.txt
+
+# compare files to see which proteomes contain both genes
+grep -f mcrAcandidates.txt hsp70candidates.txt | sort | uniq >> FinalCandidates.txt 
 
