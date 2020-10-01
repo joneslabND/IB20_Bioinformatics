@@ -20,7 +20,17 @@ which is involved in protein biogenesis and refolding for stress resistance.
 #of the specific alignment and the path I used is from the tool directory to the proteomes
 #directory)
 
-for proteome in ../proteomes/*.fasta
+#for proteome in ../proteomes/*.fasta
+#do
+#../hmmsearch --tblout $proteome.hmmtxt HMMmodelhsp70gene.afa $proteome
+#done
+
+
+echo hspfile:m
+for proteomefile in ../proteomes/*fasta.hmmtxt
 do
-../hmmsearch --tblout proteomehmm.txt HMMmodelhsp70gene.afa $proteome
+echo $proteomefile: >>hsp70matches.txt
+cat $proteomefile | grep ^WP_ | wc -l >> hsp70matches.txt ; ech 
 done
+
+
