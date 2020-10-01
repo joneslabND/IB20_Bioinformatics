@@ -35,7 +35,7 @@ for files in $4 $5
 do
 proteome=$(echo *_search1output.fasta | cut -d _ -f 1,2)
 hsp_hits=$(cat *_search1output.fasta | grep -v "#" | wc -l)
-mrcA_hits=$(cat *_search2output.fasta | grep -v "#" | wc -l)
+mcrA_hits=$(cat *_search2output.fasta | grep -v "#" | wc -l)
 echo $proteome
 echo $mcrA_hits
 echo ${proteome},${hsp_hits},${mcrA_hits} >> finaltable1.csv
