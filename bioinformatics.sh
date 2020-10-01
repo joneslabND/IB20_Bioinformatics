@@ -16,3 +16,8 @@ do
 cat $file >> totalhsp70gene.fasta
 done
 
+# create hsp70 gene alignment
+~/bin/muscle -in totalhsp70gene.fasta -out alignedhsp70genes.fasta
+
+# create hsp70 gene search image
+~/bin/bin/hmmbuild hsp70searchimage.fasta alignedhsp70genes.fasta
