@@ -3,7 +3,7 @@
 #searches
 
 
-#HSP references combined into one ref file, muscle used to build alignment
+#HSP references combined into one ref file, muscle used to build alignment from this reference file
 for file in ref_sequences/hsp*.fasta
 do
 	cat $file  >> hsp.ref
@@ -15,14 +15,24 @@ done
 ~/Private/bin/hammer/hmmbuild hsp.profile hsp.alignment
 
 #using hmmsearch to query each genome for all 50 proteomes with built profile
-#for loop allows us to create a file for each proteome
+#for loop allows us to create a file with .hmm for each proteome
 
 for file in proteomes/*.fasta
 do
   	../bin/hammer/hmmsearch --tblout $file.hmm hsp.profile  $file
 done
 
+#it is known that pH resistance can be identified by the number of copies of the
+#HSP70 gene. Hmmsearch presents each copy on a new line, so we can simply count the number of hits for each proteome with wc 
+#We reverse grep to eliminate all header and footer text, which begins with # 
 for hmmfile in proteomes/*.hmm
 do
-  	echo $hmmfile | cat $hmmfile | grep -v "#" | wc -l 
+  	cat $hmmfile | grep -v "#" | wc -l >> hsphits.txt
 done
+
+
+#for mrca, we can do pretty much same as above but instead of using grep -v # and word count we need 
+#to grep for the gene "methyl-coenzyme M reductase" for the proteomes
+
+
+
