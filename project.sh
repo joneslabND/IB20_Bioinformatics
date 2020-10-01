@@ -7,10 +7,25 @@ cd ref_sequences
 
 for sequence in mcrA*
 do
-cat $sequence >> ../working_files/mcrAsequences.txt
+cat $sequence >> ../working_files/mcrAsequences.fasta
 done
 
 for sequence in hsp70*
 do
-cat $sequence >> ../working_files/hsp70sequences.txt
+cat $sequence >> ../working_files/hsp70sequences.fasta
 done 
+
+cd ../working_files
+
+../../bin/muscle -in mcrAsequences.fasta -out mcrAgenefull_alignment
+../../bin/hmmbuild mcrAgene_build mcrAgenefull_alignment
+../../bin/hmmsearch --tblout mcrAgene_search mcrAgene_build [[[[[proteomes]]]]]]] 
+
+# need to get results from mcrA into file that hmmer can read
+../../bin/muscle -in hsp70sequences.fasta -out hsp70genefull_alignment
+../../bin/hmmbuild hsp70gene_build hsp70genefull_alignment
+../../bin/hmmsearch --tblout hsp70gene_search hsp70gene_build [[[[[results from mcrA]]]
+
+# grep?? 
+# need to sort by most copies of hsp70
+# head, tail, cut, >> file with proteome names
