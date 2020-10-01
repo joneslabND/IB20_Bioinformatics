@@ -10,7 +10,6 @@ muscle -in mcrArefs -out mcrAmuscleresult
 ../../../bin/hmmer/bin/hmmbuild hsp70hmmbuild hsp70muscleresult
 ../../../bin/hmmer/bin/hmmbuild mcrAhmmbuild mcrAmuscleresult
 
-<<<<<<< HEAD
 #Search each proteome in the proteomes directory for matches for each gene using the HMM profiles and output a seaparate file with matches for each gene.
 cd proteomes
 for file in *.fasta
@@ -27,5 +26,3 @@ match2=$(cat mcrA_$file | grep -v '#' | wc -l)
 echo "$file,$match1,$match2" | sed 's/.fasta//g'
 done
 
-=======
->>>>>>> 709659aa6962350c1f4d5610be9d6991e3514831
