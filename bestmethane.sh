@@ -21,7 +21,7 @@ cat ref_sequences/hsp* > allhsp.fasta
 
 for file in proteomes/proteome* 
 do 
-~/bin/hmmer-3.3.1/src/hmmsearch -o tables$file $file allmcrA.fasta >> $file
-~/bin/hmmer-3.3.1/src/hmmsearch -o table$file $file allhsp.fasta >> $file
+~/bin/hmmer-3.3.1/src/hmmsearch --tblout tables$file mcrAHMM.fasta $file
+~/bin/hmmer-3.3.1/src/hmmsearch --tblout table$file hspHMM.fasta $file
 done
 
