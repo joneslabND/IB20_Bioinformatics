@@ -32,14 +32,16 @@ done
 # This part runs an hmmsearch
 # DOES NOT WORK AT THE MOMENT
 
+rm -r mcrA_results
+rm -r hsp_results
 mkdir mcrA_results
 mkdir hsp_results
-for variable in ../proteomes/*.fasta
+mv ../proteomes/*.fasta .
+for proteome in *.fasta
 do
-proteome=$(echo ${variable} | cut -d / -f 3 | cut -d . -f 1)
-echo $proteome
-~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/hspsearch_$proteome_result.txt aligned_hsp_refs_profile.hmm $variable
-~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/mcrAsearch_$proteome_result.txt aligned_mcrA_refs_profile.hmm $variable
+#proteome=$(echo ${variable} | cut -d / -f 3 | cut -d . -f 1)
+~/bin/hmmer/bin/hmmsearch aligned_hsp_refs_profile.hmm "$proteome" >> $proteome.txt
+~/bin/hmmer/bin/hmmsearch aligned_mcrA_refs_profile.hmm "$proteome" >> $proteome.txt
 done
 
 echo "All done!!"
