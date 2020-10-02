@@ -81,13 +81,13 @@ echo This table will have three columns. >> summary_table.txt
 
 echo The first column is the name of the proteome. >> summary_table.txt
 
-echo The second column is the number of hits for the hsp gene. >> summary_table.txt
+echo The second column is the number of hits for the ${1} gene. >> summary_table.txt
 
-echo The third will have the number of hits for the mcr gene. >> summary_table.txt
+echo The third will have the number of hits for the ${2} gene. >> summary_table.txt
 
 echo >> summary_table.txt
 
-echo Prot_ Name HSP70 McrA >> summary_table.txt
+echo Prot_ Name ${1} ${2} >> summary_table.txt
 
 echo >> summary_table.txt
 
@@ -97,10 +97,10 @@ for file in *.fasta
 
 do
 
-HSP=$(grep "WP" ../hmmr_search_results_hsp/hsp_search_$file | wc -l)
-MCR=$(grep "WP" ../hmmr_search_results_mcr/mcr_search_$file | wc -l)
+gene1=$(grep -v "#" ../hmmer_search_results_${1}/${1}_search_$file | wc -l)
+gene2=$(grep -v "#" ../hmmer_search_results_${2}/${2}_search_$file | wc -l)
 
-echo $file $HSP $MCR >> ../summary_table.txt
+echo $file $gene1 $gene2 >> ../summary_table.txt
 
 done
 
