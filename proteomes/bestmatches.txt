@@ -1,0 +1,16 @@
+Proteome # , hsp genes , mcrA genes
+Proteome 15  ,  1  ,  1
+Proteome 16  ,  1  ,  1
+Proteome 19  ,  1  ,  2
+Proteome 38  ,  1  ,  1
+Proteome 39  ,  1  ,  1
+Proteome 44  ,  1  ,  1
+Proteome 48  ,  1  ,  1
+Proteome 05  ,  2  ,  1
+Proteome 07  ,  2  ,  1
+Proteome 23  ,  2  ,  2
+Proteome 24  ,  2  ,  1
+Proteome 03  ,  3  ,  1
+Proteome 42  ,  3  ,  1
+Proteome 45  ,  3  ,  1
+Proteome 50  ,  3  ,  1
