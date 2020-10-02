@@ -1,7 +1,7 @@
 # general: run in parent directory of proteomes and ref_sequences directory
 # usage: bash FINALSCRIPT.sh 1-compiled-hsp70-refseq-name 2-compiled-mcrA-refseq-name 3-aligned-hsp70 4-aligned-mcrA 5-hsp70-built 6-mcrA-built 7-hsp70-hits 8-mcrA-hits 9-hsp70proteomes 10-mcrAproteomes 11-combined-proteomes
 # for example: bash FINALSCRIPT.sh hsp70comp.fasta mcrAcomp.fasta hsp70.aligned mcrA.aligned hsp70.built mcrA.built hsp70proteome_hits.txt mcrAproteome_hits.txt hsp70proteomes.txt mcrAproteomes.txt allproteomes.txt
-# files for project assignment: CANDIDATES.txt hsp70proteome_hits.txt mcrAproteome_hits.txt and this script
+# files for submission: CANDIDATES.txt hsp70proteome_hits.txt mcrAproteome_hits.txt and this script
 
 # compiles all genes into two files to prep for alignment
 
