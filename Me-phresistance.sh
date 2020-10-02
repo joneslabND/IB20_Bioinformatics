@@ -26,7 +26,7 @@
 #done
 
 
-echo hspfile, number of matches >hsp70matches.txt
+#echo hspfile, number of matches >hsp70matches.txt
 for proteomefile in ../proteomes/*fasta.hmmtxt
 do
 var1="cat $proteomefile | grep ^WP_ | wc -l" 
