@@ -1,4 +1,5 @@
+mkdir hspresults
 for num in {01..50}
 do
-hmmsearch hsp.HMM proteome_$num.fasta >> hsp_proteomes.txt
+hmmsearch --tblout hspresults/hspsearchoutput_proteome$num.HMM hsp.HMM proteome_$num.fasta
 done
