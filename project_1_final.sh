@@ -19,17 +19,17 @@ mkdir ./output/gene2output
 # the second step of this will align the reference files using muscle and will create profile with muscle; depending on the computer you're using to run this, you will have to change where hmmbuild and muscle are located 
 # usage for muscle: path_to_muscle -in gene1.fasta gene1v1.fasta
 # usage for hmmbuild: path_to_hmmbuild gene1v2.fasta gene1v1.fasta
-# all of the files are fasta for now but can be changed to hmm (check with professor before handing in project)
+# all of the files are fasta for now but can be changed to hmm 
 
 cat $1 > gene1.fasta 
-~/muscle -in gene1.fasta -out gene1v1.fasta 
-~/local/bin/hmmbuild gene1v2.fasta gene1v1.fasta 
+~/muscle -in gene1.fasta -out gene1_muscle.fasta 
+~/local/bin/hmmbuild gene1_build.fasta gene1_muscle.fasta 
 cat $2 > gene2.fasta 
-~/muscle -in gene2.fasta -out gene2v1.fasta 
-~/local/bin/hmmbuild gene2v2.fasta gene2v1.fasta 
+~/muscle -in gene2.fasta -out gene2_muscle.fasta 
+~/local/bin/hmmbuild gene2_build.fasta gene2_muscle.fasta 
 
 
-#do not change ./proteomes/*.fasta for $3 because it hasn't been working (check with prof before handing in project)
+
 # this loop will search each proteome file against the hmmr files created for each gene 
 # once again, make sure to change path to hmmsearch depending on where it is in the system you're running this in 
 
@@ -37,8 +37,9 @@ cat $2 > gene2.fasta
 for files in ${3}
 do
 name=$(echo ${files} | cut -d / -f 2 | cut -d . -f 1)
-~/local/bin/hmmsearch --tblout ./output/gene1output/${name}_search1output.fasta gene1v2.fasta ${files}
-~/local/bin/hmmsearch --tblout ./output/gene2output/${name}_search2output.fasta gene2v2.fasta ${files}
+# echo $name (for troubleshooting)
+~/local/bin/hmmsearch --tblout ./output/gene1output/${name}_search1output.fasta gene1_build.fasta ${files}
+~/local/bin/hmmsearch --tblout ./output/gene2output/${name}_search2output.fasta gene2_build.fasta ${files}
 done 
 
 # this part will create a table with the name of the proteome, the number of hits of gene 1, and the number of hits of gene 2; table will be found in output directory
