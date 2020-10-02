@@ -42,4 +42,4 @@ grep -f mcrAcandidates.txt hsp70candidates.txt | sort | uniq >> FinalCandidates.
 for number in {01..50} ; do export hsp70var_$number=$(grep -c "proteome_$number" hsp70candidates.txt) ; done
 for number in {01..50} ; do export mcrAvar_$number=$(grep -c "proteome_$number" mcrAcandidates.txt) ; done
 for number in {01..50} ; do eval echo proteome_$number,\$hsp70var_$number,\$mcrAvar_$number; done >> SummaryTable.txt
-sed '1 s/^/proteome,hsp 70 matches,mcrA matches\n/' SummaryTable.txt 
+sed '1 s/^/proteome,hsp 70 matches,mcrA matches\n/' SummaryTable.txt > FinalSummaryTable.txt 
