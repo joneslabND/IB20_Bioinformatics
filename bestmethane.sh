@@ -2,6 +2,9 @@
 
 # usage: bash bestmethane.sh <proteome.fasta>
 
+cat ref_sequences/mcrAgene* > allmcrA.fasta
+cat ref_sequences/hsp* > allhsp.fasta
+
 # find aligned sequences in hsp and mcrA
 
 ~/bin/muscle -in allhsp.fasta -out alignedhsp.fasta
@@ -16,11 +19,9 @@
 
 # for loop to search sequence for conserved mcrA and HSP70 genes
 
-cat ref_sequences/mcrAgene* > allmcrA.fasta
-cat ref_sequences/hsp* > allhsp.fasta
-for file in HMMaligned* 
+for file in proteomes/proteome* 
 do 
-~/bin/hmmer-3.3.1/src/hmmsearch -o tables$file.fa $file allmcrA.fasta >> table.fa
-~/bin/hmmer-3.3.1/src/hmmsearch -o table$file.fa $file allhsp.fasta >> table.fa
+~/bin/hmmer-3.3.1/src/hmmsearch -o tables$file $file allmcrA.fasta >> $file
+~/bin/hmmer-3.3.1/src/hmmsearch -o table$file $file allhsp.fasta >> $file
 done
 
