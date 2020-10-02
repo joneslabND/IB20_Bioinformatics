@@ -27,9 +27,14 @@ do
 ~/bin/hmmer-3.3.1/bin/hmmsearch --tblout table$file hspHMM.fasta $file
 done
 
-for result in tableproteome_[0-9]{2}.fasta
+echo "Proteome#, hsp , mcrA" > Hits.txt
+
+for result in tableproteome*
 do
-	"matchnum" =$(cat $result | grep -E ^[^"#"]| wc -l)
-	echo "$result , $matchnum "
+	Number=$(echo $result | cut -d . -f 2)
+	myvar=$(cat $result | grep -E ^[^"#"]| wc -l)
+	echo myvar >> Hits1.txt
+	
+	
 done
   
