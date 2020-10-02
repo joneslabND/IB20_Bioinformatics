@@ -10,5 +10,5 @@ WP_013099697.1       -          alignedmcrA          -                  0 1086.9
 # Target file:     proteome_29.fasta
 # Option settings: ../hmmsearch --tblout proteome_29.fasta_table2 ../resultsmcrA proteome_29.fasta 
 # Current dir:     /afs/crc.nd.edu/user/a/azachrit/Private/Temp/IB20_Bioinformatics/proteomes
-# Date:            Fri Oct  2 16:52:39 2020
+# Date:            Fri Oct  2 16:57:57 2020
 # [ok]

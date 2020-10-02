@@ -11,5 +11,5 @@ WP_010868356.1       -          alignedhsp           -              0.014   10.4
 # Target file:     proteome_02.fasta
 # Option settings: ../hmmsearch --tblout proteome_02.fasta_table1 ../resultshsp proteome_02.fasta 
 # Current dir:     /afs/crc.nd.edu/user/a/azachrit/Private/Temp/IB20_Bioinformatics/proteomes
-# Date:            Fri Oct  2 16:52:35 2020
+# Date:            Fri Oct  2 16:57:53 2020
 # [ok]

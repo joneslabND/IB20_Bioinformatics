@@ -14,5 +14,5 @@ YP_001634376.1       -          alignedhsp           -            0.00081   15.5
 # Target file:     proteome_25.fasta
 # Option settings: ../hmmsearch --tblout proteome_25.fasta_table1 ../resultshsp proteome_25.fasta 
 # Current dir:     /afs/crc.nd.edu/user/a/azachrit/Private/Temp/IB20_Bioinformatics/proteomes
-# Date:            Fri Oct  2 16:52:38 2020
+# Date:            Fri Oct  2 16:57:57 2020
 # [ok]

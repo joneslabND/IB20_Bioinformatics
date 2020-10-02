@@ -28,13 +28,15 @@ done
 
 #The above for loop executes a hmmsearch and outputs the results to a table. The end result of this code creates 100 tables - 2 for each unique protemone (one for hsp70gene and one for mrcA)
 
-echo proteome name, #hsp70, #mcrA > finaltable
+echo "proteome name,hsp70,mcrA" > finaltable
 
 #This creates a table file with the appropriate headers. The following code will build the table line by line
 
-for $file in *.fasta
-do hsp=$(cat ${file}_table1 | grep -v "#" | wc-l) mcrA=$(cat ${file}_table2 | grep -v "#") 
-   echo "$name,$hsp,$mcrA" >> finaltable
+for file in *.fasta
+do
+	 hsp=$(cat ${file}_table1 | grep -v "#" | wc -l)
+	 mcrA=$(cat ${file}_table2 | grep -v "#" | wc -l) 
+	 echo "$file,$hsp,$mcrA" >> finaltable
 done
 
 #The above for loop will loop 50 proteome files, storing the "hits" for mcrA and hsp based off of the respective tables, then the name of the proteome along with the # of hits will be printed and redirect to the finaltable file

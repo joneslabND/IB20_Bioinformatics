@@ -9,5 +9,5 @@
 # Target file:     proteome_36.fasta
 # Option settings: ../hmmsearch --tblout proteome_36.fasta_table2 ../resultsmcrA proteome_36.fasta 
 # Current dir:     /afs/crc.nd.edu/user/a/azachrit/Private/Temp/IB20_Bioinformatics/proteomes
-# Date:            Fri Oct  2 16:52:40 2020
+# Date:            Fri Oct  2 16:57:58 2020
 # [ok]
