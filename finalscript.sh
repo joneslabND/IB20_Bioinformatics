@@ -49,3 +49,6 @@ done
 cat proteomemcrA/mcrAcount.txt proteomeshsp/hspcount.txt | sort -k2,2n -t\_ >> countsforallgenes.txt
 paste -s -d",\n" countsforallgenes.txt >> arrangedcountsforallgenes.txt
 
+#Make summary table of results of arranged counts
+echo "Proteome hspGene mcrAgene" >> finalresults.txt
+cat arrangedcountrsforallgenes.txt | sed 's/hspproteome/proteome/g' | cut -d , -f 1,2,4 | sed 's/,/ /g' | sed 's/.fasta.txt/ /g' >> finalresults.txt
