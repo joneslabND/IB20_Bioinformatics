@@ -38,3 +38,4 @@ done
 
 # count hits
 # sort summary, keep non zero in mcra, sort by hsp70
+cat summaryOutput.csv | cut -d "," -f 1,2,3 | sort -n -k 2 | head -n 16 | sort -n -r -k 3
