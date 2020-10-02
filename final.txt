@@ -35,4 +35,41 @@ done
 #to grep for the gene "methyl-coenzyme M reductase" for the proteomes
 
 
+# one reference file created with all mcrA data
+
+for file in ref_sequences/mcrAgene_*.fasta 
+
+do
+
+    cat $file >> mrcA.ref
+
+done
+
+
+
+# muscle used to align reference sequences of the mcrA gene
+
+~/bin/muscle -in mrcA.ref -out mrcA.alignment
+
+
+
+# hmmer used to build a profile from this alignment
+
+~/bin/hmmer/hmmbuild mrcA.profile mrcA.alignment
+
+
+
+# hmmsearch used to search each genome for all 50 proteomes with build profile
+
+# file with .hmm for each proteome created with for loop
+
+for file in proteomes/*.fasta
+
+do
+
+     ../bin/hmmer/hmmsearch —tblout $file.hmm mrcA.profile $file
+
+done
+
+
 
