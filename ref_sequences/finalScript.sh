@@ -22,14 +22,20 @@ hmmbuild hsp.HMM alignhsp70.afa
 #build hidden markov model for mcrA references
 hmmbuild mcrA.HMM alignmcrA.afa
 
+mv hsp.HMM ../proteomes
+mv mcrA.HMM ../proteomes
+cd ../proteomes
+
 #search	all 50 proteomes using hsp.HMM as search criteria
+mkdir hspresults
 for num in {01..50}
 do
-hmmsearch hsp.HMM proteome_$num.fasta >> hsp_proteomes.txt
+hmmsearch --tblout hspresults/hspsearchoutput_proteome$num.HMM hsp.HMM proteome_$num.fasta
 done
 
 #search all 50 proteomes using mcrA.HMM as search criteria
+mkdir mcraresults
 for num in {01..50}
 do
-hmmsearch mcrA.HMM proteome_$num.fasta >> mcrA_proteomes.txt
+hmmsearch --tblout mcraresults/mcrasearchoutput_proteome$num.HMM mcrA.HMM proteome_$num.fasta
 done
