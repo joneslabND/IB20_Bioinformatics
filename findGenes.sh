@@ -32,6 +32,6 @@ do
 done
 
 
-cat $3/finalProduct.csv | sort -t , -n -r -k 3 | head -n 16 | sort -t , -n -r -k 2 >> $3/candidates.csv
+cat $3/finalProduct.csv | sort -t , -n -r -k 3 | head -n 16 | sort -t , -n -r -k 2 > $3/candidates.csv
 
 
