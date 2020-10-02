@@ -20,23 +20,47 @@
 #of the specific alignment and the path I used is from the tool directory to the proteomes
 #directory)
 
-#mkdir hmmsearches
-#cd proteomes
-#for proteome in *.fasta
-#do
-#cd ..
-#~/hmmsearch --tblout hmmsearches/$proteome.hmmtxt hsp70outputs/HMMmodelhsp70gene.afa proteomes/$proteome
-#cd proteomes
-#done
+mkdir hsp70searches
+cd proteomes
+for proteome in *.fasta
+do
+cd ..
+~/hmmsearch --tblout hsp70searches/$proteome.hsp70txt hsp70outputs/HMMmodelhsp70gene.afa proteomes/$proteome
+cd proteomes
+done
 
-echo hspfile, number of matches >hsp70matches.txt
-cd hmmsearches
-for proteomefile in *fasta.hmmtxt
+#echo "proteome, number of matches" >>hsp70matches.txt
+cd ../hsp70searches
+for proteomefile in *fasta.hsp70txt
 do
 var1=`cat $proteomefile | grep ^WP_ | wc -l` 
 cd ..
 echo "$proteomefile, $var1" >>hsp70matches.txt
-cd hmmsearches
+cd hsp70searches
 done
 
+cd ..
+mkdir mcrasearches
+cd proteomes
+for proteome in *.fasta
+do
+cd ..
+~/hmmsearch --tblout mcrasearches/$proteome.mcratxt mcraoutputs/HMMmodelmcr.afa proteomes/$proteome
+cd proteomes
+done
+ 
+#echo proteome, number of matches >mcramatches.txt
+cd ../mcrasearches
+for proteomefile in *fasta.mcratxt
+do
+var2=`cat $proteomefile | grep ^WP_ | wc -l`
+cd ..
+echo "$proteomefile, $var2" >>mcramatches.txt
+cd mcrasearches
+done
+
+cd ..
+cut -d "," -f 2 mcramatches.txt | paste -d, hsp70matches.txt - | sed 's/.fasta.hsp70txt//' > finalmatches.txt  
+
+cat finalmatches.txt | grep -v " 0" | cut -d "," -f 1 | sed 's/.fasta.hsp70txt//' > finalproteomelist.txt
 
