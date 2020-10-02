@@ -1,0 +1,15 @@
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_50.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_45.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_42.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_03.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_24.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_23.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_07.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_05.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_48.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_44.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_39.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_38.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_19.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_16.fasta
+/afs/crc.nd.edu/user/h/hgordon2/Private/bin/IB20_Bioinformatics/proteomes/proteome_15.fasta
