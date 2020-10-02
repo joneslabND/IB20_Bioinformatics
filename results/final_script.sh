@@ -1,5 +1,5 @@
 # This is the final script for the Bioinformatics project
-# Usage: bash final_script.sh hspGeneFiles mcrAGeneFiles
+# Usage: bash final_script.sh hspGeneFiles mcrAGeneFiles proteomeFiles
 
 # Compile the reference sequences for the hsp proteins
 # Edit this section to change which genes to look for
@@ -20,3 +20,12 @@ done
 # that it creates a search image for the hsp proteins and mrcA proteins
 ~/bin/hmmer/bin/hmmbuild ~/Private/IB20_Bioinformatics/results/aligned_hsp_refs_profile.hmm ~/Private/IB20_Bioinformatics/ref_sequences/aligned_hsp_refs.txt
 ~/bin/hmmer/bin/hmmbuild ~/Private/IB20_Bioinformatics/results/aligned_mcrA_refs_profile.hmm ~/Private/IB20_Bioinformatics/ref_sequences/aligned_mcrA_refs.txt
+
+# This is to compile the proteomes into one file
+for reference3 in $3
+do
+echo $reference3
+cat $reference3 >> compiled_proteomes.txt
+done
+
+~/bin/hmmer/bin/hmmsearch --tblout resultsfile.txt aligned_hsp_refs_profile.hmm compiled_proteomes.txt
