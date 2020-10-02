@@ -13,26 +13,26 @@
 #Within these directories, we ran the muscle tool and hmmr tools to produce all of our outputs that
 #we need to go into our for loop as inputs.
 
-mkdir gene1outputs
-mkdir gene2outputs
+mkdir $1
+mkdir $2
 
 cd ref_sequences
 
 cat hsp70gene* > hsp70gene_combined.fasta
 cat mcrAgene* > mcrAgene+combined.fasta
 
-mv hsp70gene_combined.fasta ../gene1outputs
-mv mcrAgene+combined.fasta ../gene2outputs
+mv hsp70gene_combined.fasta ../$1
+mv mcrAgene+combined.fasta ../$2
 
 cd ..
 
-~/muscle -in ./gene1outputs/hsp70gene_combined.fasta -out gene1alignment.afa 
-~/muscle -in ./gene2outputs/mcrAgene+combined.fasta -out gene2alignment.afa
+~/muscle -in ./$1/hsp70gene_combined.fasta -out gene1alignment.afa 
+~/muscle -in ./$2/mcrAgene+combined.fasta -out gene2alignment.afa
 ~/hmmbuild HMMmodelgene1.afa gene1alignment.afa
 ~/hmmbuild HMMmodelgene2.afa gene2alignment.afa
 
-mv gene1alignment.afa HMMmodelgene1.afa gene1outputs
-mv gene2alignment.afa HMMmodelgene2.afa gene2outputs
+mv gene1alignment.afa HMMmodelgene1.afa $1
+mv gene2alignment.afa HMMmodelgene2.afa $2
 
 #The hsp70searches directory is made to include the outputs of hmmsearch with the proteome file and HMMmodelgene1.afa which is the model hidden markov model built for hsp70.
  
@@ -41,7 +41,7 @@ cd proteomes
 for proteome in *.fasta
 do
 cd ..
-~/hmmsearch --tblout hsp70searches/$proteome.hsp70txt gene1outputs/HMMmodelgene1.afa proteomes/$proteome
+~/hmmsearch --tblout hsp70searches/$proteome.hsp70txt $1/HMMmodelgene1.afa proteomes/$proteome
 cd proteomes
 done
  
@@ -64,7 +64,7 @@ cd proteomes
 for proteome in *.fasta
 do
 cd ..
-~/hmmsearch --tblout mcrasearches/$proteome.mcratxt gene2outputs/HMMmodelgene2.afa proteomes/$proteome
+~/hmmsearch --tblout mcrasearches/$proteome.mcratxt $2/HMMmodelgene2.afa proteomes/$proteome
 cd proteomes
 done
  
@@ -93,5 +93,5 @@ cat finalmatches.txt | grep -v " 0" | cut -d "," -f 1 | sed 's/.fasta.hsp70txt//
 
 
 #output: final matches.txt contains the list of proteomes with the number of hsp70 matches in the first column and the number of mcra matches in the second column for each proteome
-#output: finalproteomelist.txt contains the list of proteomes that 
+#output: finalproteomelist.txt contains the list of proteomes that has matches with both genes and is therefore recommended for this project
 
