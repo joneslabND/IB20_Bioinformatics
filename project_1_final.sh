@@ -1,8 +1,8 @@
 # this script will align files of interest and will search comparing to the other files; then, it'll create a file for each $1=firstrefgenefile $2=secondrefgenefiles and it will finally create a table with the number of gene hits in each proteome for each of the genes specified
 # the script is flexible enough for 2 genes
 # the outputs for the searches will be found in subdirectories in a directory calle output; directories will be created by the shell script 
-# usage: bash projectbeta.sh refsequencesfilesforgene1 refsequencesfilesforgene2 
-# specific usage for hsp/mcrA: bash projectbeta.sh ref_sequences/hsp70*.fasta ref_sequences/mcrA*.fasta 
+# usage: bash projectbeta.sh "./ref_seq_directory/gene1_ref_files" "./ref_seq_directory/gene2_ref_files" "proteome_directory/proteome_search_files" "nameofgene1" "nameofgene2"
+# specific usage for hsp/mcrA: bash project_1_final.sh "./ref_sequences/hsp70*.fasta" "./ref_sequences/mcrA*.fasta" "proteomes/*.fasta" "hspgene" "mcrAgene" 
 # ---------------------------------------------------------------------------------------------------
 
 # this part will create the directories where the search files and final table will be stored
