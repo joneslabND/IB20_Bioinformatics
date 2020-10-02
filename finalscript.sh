@@ -4,18 +4,18 @@
 
 cd ref_sequences
 
-# Create markov model for hsp gene 
+# Create hidden markov model for hsp gene 
 
 cat hsp*.fasta >> hspgenefull.fasta
 "$1"/muscle -in hspgenefull.fasta -out hspgenemuscle.txt
 "$1"/hmmbuild hspgenehmmr.txt hspgenemuscle.txt 
 
-# Create markov model for mcrA gene
+# Create hidden markov model for mcrA gene
 cat mcrA*.fasta >> mcrAgenefull.fasta
 "$1"/muscle -in mcrAgenefull.fasta -out mcrAgenemuscle.txt
 "$1"/hmmbuild mcrAgenehmmr.txt mcrAgenemuscle.txt
 
-#Execute searches for both genes
+#Execute hmmsearches for both hidden markov models of hsp and mcrA gene
 cd ../proteomes
 mkdir proteomeshsp
 mkdir proteomemcrA
