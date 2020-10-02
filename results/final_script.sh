@@ -1,4 +1,6 @@
 # This is the final script for the Bioinformatics project
+# Your muscle tool should be in the folder ~/bin/<muscletool>
+# Your hmmer tools should be in the folder ~/bin/hmmer/bin/<hmmertool>
 # Usage: bash final_script.sh
 
 # Compile the reference sequences for the hsp proteins
