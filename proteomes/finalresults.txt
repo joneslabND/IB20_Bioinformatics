@@ -1,3 +1,4 @@
+Proteome hspGene mcrAgene
 proteome_01   4  0
 proteome_02   2  0
 proteome_03   3  1
