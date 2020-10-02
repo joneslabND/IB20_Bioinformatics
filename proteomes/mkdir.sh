@@ -1,0 +1,3 @@
+mkdir hspresults
+mkdir mcraresults
+
