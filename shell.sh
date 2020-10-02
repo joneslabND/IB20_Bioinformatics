@@ -53,6 +53,6 @@ done
 cat summary.csv | sort --field-separator=',' -k 2
 
 #Create text file with possible candidates
-cat summary.csv |sed -E 's/,/ /g' | grep -v -w "0" | cut -d " " -f 1 | sort -n > candidates.txt
+cat summary.csv |sort -r --field-separator=',' -k 3 | sed -E 's/,/ /g' | grep -v -w "0" | cut -d " " -f 1 > candidates.txt
 
 cat candidates.txt
