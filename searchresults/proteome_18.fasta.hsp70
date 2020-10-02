@@ -1,0 +1,21 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_010075966.1       -          hsp70                -                  0 1013.7  32.7         0 1013.5  32.7   1.0   1   0   0   1   1   1   1 molecular chaperone DnaK 
+WP_010073455.1       -          hsp70                -             1e-136  454.6   4.3  1.2e-136  454.4   4.3   1.0   1   0   0   1   1   1   1 molecular chaperone HscC 
+WP_010076109.1       -          hsp70                -             7e-111  369.3   7.0  1.6e-103  345.0   0.6   2.2   2   0   0   2   2   2   2 Hsp70 family protein 
+WP_010076108.1       -          hsp70                -            1.6e-87  292.2   5.5   1.9e-87  291.9   5.5   1.1   1   0   0   1   1   1   1 Hsp70 family protein 
+WP_010075827.1       -          hsp70                -            2.3e-15   53.8   9.8   1.5e-14   51.2   9.8   2.3   1   1   0   1   1   1   1 rod shape-determining protein 
+WP_010076656.1       -          hsp70                -            1.3e-14   51.3   7.0   1.1e-13   48.2   7.0   2.3   1   1   0   1   1   1   1 rod shape-determining protein 
+WP_010074858.1       -          hsp70                -             0.0005   16.4   0.0    0.0035   13.5   0.0   2.0   2   0   0   2   2   2   1 xylulokinase 
+WP_010077048.1       -          hsp70                -              0.014   11.6   2.4     0.018   11.2   0.3   1.7   1   1   1   2   2   2   0 DUF89 domain-containing protein 
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      hsp70.built
+# Target file:     proteomes/proteome_18.fasta
+# Option settings: /afs/crc.nd.edu/user/m/mhuang6/Bin/hmmer/hmmsearch --tblout proteomes/proteome_18.fasta.hsp70 hsp70.built proteomes/proteome_18.fasta 
+# Current dir:     /afs/crc.nd.edu/user/m/mhuang6/Private/bioproject
+# Date:            Thu Oct  1 15:36:04 2020
+# [ok]
