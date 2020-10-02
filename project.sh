@@ -1,6 +1,6 @@
 # start in IB20_Bioinformatics directory
 # usage: bash project.sh gene_1 gene_2
-# output:
+# output: proteomes that contain both genes
 mkdir working_files
 
 cd ref_sequences
@@ -42,4 +42,4 @@ grep -f "$1"candidates.txt "$2"candidates.txt | sort | uniq > FinalCandidates.tx
 for number in {01..50} ; do export "$2"var_$number=$(grep -c "proteome_$number" "$2"candidates.txt) ; done
 for number in {01..50} ; do export "$1"var_$number=$(grep -c "proteome_$number" "$1"candidates.txt) ; done
 for number in {01..50} ; do eval echo proteome_$number,\$"$2"var_$number,\$"$1"var_$number; done >> SummaryTable.txt
-sed '1 s/^/proteome,"$2" matches,"$1" matches\n/' SummaryTable.txt > FinalSummaryTable.txt 
+sed "1 s/^/proteome,"$2" matches,"$1" matches\n/" SummaryTable.txt > FinalSummaryTable.txt 
