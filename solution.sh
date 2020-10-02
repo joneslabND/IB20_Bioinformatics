@@ -93,11 +93,4 @@ cd ..
 
 #Creating text file with all proteomes that contain a copy of mcrA and hsp70
 
-tail -n 50 summary_table.txt | sort -nr -k 3 -k 2 | head -n 15 | cut -d " " -f 1 | cut -d "." -f 1 > candidate_methanogens.txt
-
-
-
-
-
-
-
+grep -E '.fasta [1-9] [1-9]' summary_table.txt | cut -d . -f 1 > candidate_methanogens.txt
