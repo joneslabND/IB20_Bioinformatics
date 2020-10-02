@@ -1,0 +1,55 @@
+#This shell script is to look for two genes in any target species
+#This script creates three directories: OutputDirectory, ReferenceDirectory, and TargetDirectory
+#Arguments within the shell script are as follows $1=ReferenceDirectory, $2=OutputDirectory, and $3=TargetDirectory
+#The output containing target species with both reference genes present will be presented in a table.
+
+#Make directories
+#The OutputDirectory will contain all outputs, ReferenceDirectory will house the reference genes 1 and 2, and the TargetDirectory will hold the target species gene sequences.
+
+Mkdir OutputDirectory
+Mkdir ReferenceDirectory
+Mkdir TargetDirectory
+
+
+#We combine all files for gene1 into one fasta file
+#Make sure that the directory for your tools hmmr and muscle correspond to your pathway. Ours are located two directories above. 
+#We then align the files with muscle
+#We then build a regular expression using the tool hmmbuild
+
+for gene in “$1/hsp70*.fasta”
+do
+cat $gene >> gene1.fa
+done
+../../muscle -in gene1.fasta -out gene1.afa
+../../hmmbuild gene1.hmm gene1.afa
+
+#We combine all files for gene2 into one fasta file. 
+#Make sure that the directory for your tools hmmr and muscle correspond to your pathway. Ours are located two directories above.
+#We then align the files with muscle
+#We then build a regular expression using the tool hmmbuild
+
+for gene in “$1/mcr*.fasta”
+do
+cat $gene >> gene2.fa
+done
+../../muscle -in gene2.fasta -out gene2.afa
+../../hmmbuild gene2.hmm gene2.afa
+
+
+#This loop is for hmm search to generate a table for gene1 and gene2 using the target sequence in the TargetDirectory
+
+for proteome in "$3”
+do
+../../hmmsearch --tblout genesOfInterest.tblout gene1.hmm gene1.afa $proteome
+../../hmmsearch --tblout genesOfInterest2.tblout gene2.hmm gene2.afa $proteome
+done
+
+#Now we search for the proteomes which contain hsp and mcr genes of interest
+cat genesOfInterest1.tblout | grep ^WP_ | wc -l >> matches.txt
+cat genesOfInterest2.tblout | grep ^WP_ | wc -l >> matches.txt
+
+#Now we organize our proteome matches
+cat matches.txt | grep -v “ 0” | sort -k 2 -n >> finalMatches.txt
+
+#Move files to OutputDirectory
+cp finalMatches.txt “$2”
