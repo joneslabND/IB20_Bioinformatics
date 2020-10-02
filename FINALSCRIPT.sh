@@ -61,6 +61,12 @@ grep -R -v "#" searchresults/*.mcrA > $8
 
 # outputs from above: hsp70proteome_hits.txt($7) mcrAproteome_hits.txt($8)
 
+# cleans up above outputs
+
+sed -i -e "s/searchresults\///g" -e "s/.fasta.hsp70//g" hsp70proteome_hits.txt
+sed -i -e "s/searchresults\///g" -e "s/.fasta.mcrA//g" mcrAproteome_hits.txt
+
+
 # prints all candidate pH-resistant methanogens into one file
 
 grep -v "#" searchresults/*.hsp70 | grep -o "proteome_[0-9][0-9]" | sort | uniq > $9
