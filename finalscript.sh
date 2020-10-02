@@ -1,4 +1,4 @@
-#Identifying candidate translated genomes based on reference sequences
+#Identifying candidate translated genomes based on reference sequences, outputs all proteomes and number of copies of hsp and mcrA genes in finalresults.txt and prints all candidate methanogen proteomes in candidatemethanogens.txt  
 #Usage: bash finalscript.sh pathtotoolsdirectory
 #"pathtotoolsdirectory" as in the pathway to directory that holds 'muscle','hmmbuild',and 'hmmsearch'
 
@@ -56,6 +56,5 @@ echo "Proteome hspGene mcrAgene" >> finalresults.txt
 cat arrangedcountsforallgenes.txt | sed 's/hspproteome/proteome/g' | cut -d , -f 1,2,4 | sed 's/,/ /g' | sed 's/.fasta.txt/ /g' >> finalresults.txt
 
 #Make candidate results file
-echo "Proteome hspGene mcrAgene" >> candidatemethanogens.txt
 grep -v " 0" finalresults.txt >> candidatemethanogens.txt
 mv candidatemethanogens.txt ../
