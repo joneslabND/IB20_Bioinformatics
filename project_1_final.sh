@@ -48,7 +48,7 @@ done
 
 
 cd output
-echo proteome,${4}_hits,${5}hits > finaltable1.csv
+echo proteome,${4}_hits,${5}_hits > finaltable1.csv
 cat finaltable1.csv
 
 for files in ./gene1output/*.fasta
