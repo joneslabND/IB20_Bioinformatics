@@ -43,7 +43,7 @@ do
 ~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/hsp.$proteome.txt aligned_hsp_refs_profile.hmm "$proteome"
 ~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/mcrA.$proteome.txt aligned_mcrA_refs_profile.hmm "$proteome"
 done
-rm *.fasta
+#rm *.fasta
 
 #This part makes a table with the number of hits each proteome has for each gene
 #Hits are saved in a csv with the following format: Proteome_Name,mcrA_Hits,hsp_Hits
@@ -65,11 +65,20 @@ done
 
 paste mcrAtable.txt hsptable.txt >> output_table.txt 
 
+#This part provides a list of suitable candidates
+#A proteome is considered a suitable candidate if it has one or more copies of mcrA and hsp
+#The list is sorted so that the best candidate proteome
+#(with the highest assumed pH resistance) is first
+
+cat output_table.txt | awk '$2 != "0"' | awk '$3 != "0"' | sort -k3,3n | cut -f 1 >> candidate_list 
+
 #This part cleans up the mess from earlier so only the important files remain
 rm compiled_*
 rm aligned_*
 rm *.fasta.txt
 rm mcrAtable.txt
 rm hsptable.txt
+rm *fasta
+
 
 echo "All done!!"
