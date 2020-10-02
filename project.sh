@@ -1,6 +1,7 @@
 # start in IB20_Bioinformatics directory
 # usage: bash project.sh gene_1 gene_2
-# output: proteomes that contain both genes
+# output: FinalCandidates.txt, FinalSumaryTable.txt (identify proteomes that contain both genes)
+
 mkdir working_files
 
 cd ref_sequences
