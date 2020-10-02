@@ -13,16 +13,18 @@ cat ref_sequences/hsp* > allhsp.fasta
 
 # HMMbuild match conserved sequences
 
-~/bin/hmmer-3.3.1/src/hmmbuild hspHMM.fasta alignedhsp.fasta
+~/bin/hmmer-3.3.1/bin/hmmbuild hspHMM.fasta alignedhsp.fasta
 
-~/bin/hmmer-3.3.1/src/hmmbuild mcrAHMM.fasta alignedmcrA.fasta
+~/bin/hmmer-3.3.1/bin/hmmbuild mcrAHMM.fasta alignedmcrA.fasta
 
 # for loop to search sequence for conserved mcrA and HSP70 genes
 
-for file in proteomes/proteome* 
+mv proteomes/proteome* .
+
+for file in proteome* 
 do 
-~/bin/hmmer-3.3.1/src/hmmsearch --tblout tables$file mcrAHMM.fasta $file
-~/bin/hmmer-3.3.1/src/hmmsearch --tblout table$file hspHMM.fasta $file
+~/bin/hmmer-3.3.1/bin/hmmsearch --tblout tables$file mcrAHMM.fasta $file
+~/bin/hmmer-3.3.1/bin/hmmsearch --tblout table$file hspHMM.fasta $file
 done
 
 for result in tableproteome_[0-9]{2}.fasta
