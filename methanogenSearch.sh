@@ -14,8 +14,8 @@ rm hsp70.aligned
 rm mcrA.hmm
 rm hsp70.hmm
 rm hsp70results
-rm mcrAsearch*.fasta
-rm hsp70search*.fasta
+rm ./proteomes/mcrAsearch*.fasta
+rm ./proteomes/hsp70search*.fasta
 # rm proteomesOfInterest.txt - for when we generate the text file at the end
 
 # Merge reference sequences into a single file
@@ -43,11 +43,7 @@ done
 
 for file in ./proteomes/*.fasta
 do
-./hmmsearch --tblout mcrAsearch_$file mcrA.hmm $file
+./hmmsearch --tblout $file.mcrAresult mcrA.hmm $file
+./hmmsearch --tblout $file.hsp70result hsp70.hmm $file
 # need to put in text file or something 
-done
-
-for file in ./proteomes/*.fasta
-do
-./hmmsearch --tblout hsp70search_$file hsp70.hmm $file
 done
