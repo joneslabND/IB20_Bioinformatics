@@ -36,6 +36,6 @@ hsp70Hits=$(cat hsp70results."$name".txt | grep -v "#" | wc -l)
 echo "$name,$mcrAHits,$hsp70Hits" >> summaryOutput.csv
 done
 
-# count hits
-# sort summary, keep non zero in mcra, sort by hsp70
-cat summaryOutput.csv | cut -d "," -f 1,2,3 | sort -n -k 2 | head -n 16 | sort -n -r -k 3
+# cut summary output to include only proteomes with mcrA genes, sort by highest copies of hsp70 gene, store in final text file
+cat summaryOutput.csv | sort -t , -n -r -k 2 | head -n 16 | sort -t , -n -r -k 3 >> bestproteomes.txt
+
