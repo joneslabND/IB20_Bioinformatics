@@ -14,6 +14,8 @@ rm hsp70.aligned
 rm mcrA.hmm
 rm hsp70.hmm
 rm hsp70results
+rm mcrAsearch*.fasta
+rm hsp70search*.fasta
 # rm proteomesOfInterest.txt - for when we generate the text file at the end
 
 # Merge reference sequences into a single file
@@ -37,12 +39,15 @@ done
 ./hmmbuild hsp70.hmm hsp70.aligned  #to build a HMM based on the output of muscle, in line above
 
 
-# ./hmmsearch, for 50 times per for the methanogen gene, then output proteomes that are methanogens 
+# ./hmmsearch, for 50 times per for the methanogen gene, then 50 times for the hsp70 gene 
 
 for file in ./proteomes/*.fasta
 do
-./hmmsearch --tblout mcrAresults mcrA.hmm $file
+./hmmsearch --tblout mcrAsearch_$file mcrA.hmm $file
 # need to put in text file or something 
 done
 
-# ./take only the proteomes that are identified as methanogens and then do ./hmmsearch again to find ph resistant sequences only in these proteomes
+for file in ./proteomes/*.fasta
+do
+./hmmsearch --tblout hsp70search_$file hsp70.hmm $file
+done
