@@ -22,11 +22,11 @@ done
 
 ./muscle -in mcrAref.fasta -out mcrA.aligned  #for McrA first on mcrAref.fasta, to align the sequences
 
-# ./hmmbuild to build a HMM based on the output of muscle, above
+./hmmbuild mcrA.hmm mcrA.aligned  #to build a HMM based on the output of muscle, above
 
 ./muscle -in hsp70ref.fasta -out hsp70.aligned #for Hsp70 gene, to align these sequences
 
-#./hmmbuild to build a HMM based on the output of muscle, above
+./hmmbuild hsp70.hmm hsp70.aligned  #to build a HMM based on the output of muscle, above
 
 # ./hmmsearch, for 50 times per for the methanogen gene, then output 
 
