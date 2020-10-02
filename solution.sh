@@ -77,7 +77,19 @@ cd ..
 
 #Creating a summary table
 
-echo Proteome Name ${1} ${2}  >> summary_table.txt
+echo This table will have three columns. >> summary_table.txt
+
+echo The first column is the name of the proteome. >> summary_table.txt
+
+echo The second column is the number of hits for the hsp gene. >> summary_table.txt
+
+echo The third will have the number of hits for the mcr gene. >> summary_table.txt
+
+echo >> summary_table.txt
+
+echo Prot_ Name HSP70 McrA >> summary_table.txt
+
+echo >> summary_table.txt
 
 cd proteomes
 
@@ -85,26 +97,19 @@ for file in *.fasta
 
 do
 
-gene1=$(grep -v "#" ../hmmer_search_results_${1}/${1}_search_$file | wc -l)
-gene2=$(grep -v "#" ../hmmer_search_results_${2}/${2}_search_$file | wc -l)
+HSP=$(grep "WP" ../hmmr_search_results_hsp/hsp_search_$file | wc -l)
+MCR=$(grep "WP" ../hmmr_search_results_mcr/mcr_search_$file | wc -l)
 
-echo $file $gene1 $gene2 >> ../summary_table.txt
+echo $file $HSP $MCR >> ../summary_table.txt
 
 done
 
 cd ..
 
-<<<<<<< HEAD
 echo Check summary_table.txt for results!
 
-
-
-
-
-
-=======
 #Creating text file with all proteomes that contain a copy of mcrA and hsp70
 
 grep -E '.fasta [1-9] [1-9]' summary_table.txt | cut -d . -f 1 > candidate_methanogens.txt
->>>>>>> 8e7cabda11bee2420e95eb8f86af45401bdf7578
+
 
