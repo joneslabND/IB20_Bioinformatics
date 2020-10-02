@@ -41,7 +41,7 @@ done
 
 for file in ./proteomes/*.fasta
 do
-./hmmsearch hsp70results mcrA.hmm $file
+./hmmsearch --tblout hsp70results mcrA.hmm $file
 # need to put in text file or something 
 done
 
