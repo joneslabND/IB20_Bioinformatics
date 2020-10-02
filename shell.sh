@@ -1,6 +1,8 @@
 #Usage bash shell.sh ./ref_sequences ./proteomes when ran from IB20_Bioinformatics
 #Must change path to mucsle, hmmbild, hmmsearch for your machine
 #Creates summary.csv and candidates.txt files
+#Summary .csv file is sorted by number of mcrA.matches
+#Candidtates .txt file is all the proteomes with mcrA matches sorted by number of hsp70 matches in descending order
 
 #Concatenate the mcrAgene sequences into a single file
 cat $1/mcrAgene_*.fasta > mcrAcombo.fasta
