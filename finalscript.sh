@@ -7,12 +7,12 @@ cd ref_sequences
 
 cat hsp*.fasta >> hspgenefull.fasta
 "$1"/muscle -in hspgenefull.fasta -out hspgenemuscle.txt
-"$1"/bin/hmmbuild hspgenehmmr.txt hspgenemuscle.txt 
+"$1"/hmmbuild hspgenehmmr.txt hspgenemuscle.txt 
 
 # Create markov model for mcrA gene
 cat mcrA*.fasta >> mcrAgenefull.fasta
-"$1"/bin/muscle -in mcrAgenefull.fasta -out mcrAgenemuscle.txt
-"$1"/bin/hmmbuild mcrAgenehmmr.txt mcrAgenemuscle.txt
+"$1"/muscle -in mcrAgenefull.fasta -out mcrAgenemuscle.txt
+"$1"/hmmbuild mcrAgenehmmr.txt mcrAgenemuscle.txt
 
 #Execute searches for both genes
 cd ../proteomes
@@ -22,14 +22,14 @@ mkdir proteomemcrA
 cd proteomeshsp
 for file in *.fasta
 do
-"$1"/bin/hmmsearch --tblout proteomeshsp/hsp$file.txt ../ref_sequences/hspgenehmmr.txt $file
+"$1"/hmmsearch --tblout proteomeshsp/hsp$file.txt ../ref_sequences/hspgenehmmr.txt $file
 done
 
-cd ../proteomesmcrA
+cd ../proteomemcrA
 
 for file in *.fasta
 do
-"$1"/bin/hmmsearch --tblout proteomemcrA/mcrA$file.txt ../ref_sequences/mcrAgenehmmr.txt $file
+"$1"/hmmsearch --tblout proteomemcrA/mcrA$file.txt ../ref_sequences/mcrAgenehmmr.txt $file
 done 
 
 #Search each proteome for hsp and mcrA markov models
@@ -58,3 +58,4 @@ cat arrangedcountsforallgenes.txt | sed 's/hspproteome/proteome/g' | cut -d , -f
 #Make candidate results file
 echo proteome, hsp, mcrA >> candidatemethanogens.txt
 grep -v " 0" finalresults.txt >> candidatemethanogens.txt
+mv candidatemethanogens.txt ../
