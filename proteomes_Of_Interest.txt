@@ -1,0 +1,16 @@
+Proteomes of interest based on matches with hsp70 and mcrA sequences include:
+- Proteome_03
+- Proteome_05
+- Proteome_07
+- Proteome_15
+- Proteome_16
+- Proteome_19
+- Proteome_23
+- Proteome_24
+- Proteome_38
+- Proteome_39
+- Proteome_42
+- Proteome_44
+- Proteome_45
+- Proteome_48
+- Proteome_50
