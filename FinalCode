@@ -27,8 +27,7 @@ done
 ../../hmmbuild gene2.hmm gene2.afa
 
 
-#First, this loop is for hmm search to generate a table for gene1 and gene2 using the target sequences
-#Then we search for the proteomes which contain hsp and mcr genes of interest
+#First, this loop is for hmm search to generate a table for proteome matches of gene1 and gene2. 
 
 for proteome in "$3”
 do
@@ -36,10 +35,8 @@ do
 ../../hmmsearch --tblout genesOfInterest2.tblout gene2.hmm gene2.afa $proteome | grep ^WP_ | wc -l >> matches2.txt
 done
 
-#We now append the two match[1,2].txt files into a new file with three columns: Target Species, Match 1, Match 2 respectively
-
-
-#We generate the table with Target species with a for loop. This should give the respective target sequence. 
+#We want to put the matches[1,2].txt files into a combined file. However, we need to associated "Target Species" name with each line.
+#We generate the table with the names of the "Target Species" with a for loop.
 
 for column in "$3"
 do echo $column >> proteomename.txt
@@ -49,7 +46,7 @@ done
 paste proteomename.txt matches1.txt matches2.txt > matchescombined.txt
 
 
-#Now we organize our proteome matches
+#Now we organize our proteome matches to see which targets have the best quality match.
 cat matchescombined.txt | grep -v “ 0” | sort -k 2 -n >> finalMatches.csv
 
 
