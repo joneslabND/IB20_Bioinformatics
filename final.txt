@@ -49,13 +49,13 @@ done
 
 # muscle used to align reference sequences of the mcrA gene
 
-~/bin/muscle -in mrcA.ref -out mrcA.alignment
+~/Private/bin/muscle -in mrcA.ref -out mrcA.alignment
 
 
 
 # hmmer used to build a profile from this alignment
 
-~/bin/hmmer/hmmbuild mrcA.profile mrcA.alignment
+~/Private/bin/hmmer/hmmbuild mrcA.profile mrcA.alignment
 
 
 
