@@ -25,7 +25,7 @@ done
 # make a header for summary file
 echo "proteome, mcrA_Hits, hsp70_Hits" > summaryOutput.csv
 
-# search proteomes for mcrA image and hsp70 image
+# search proteomes for mcrA gene search image and hsp70 gene search image
 for file in proteomes/proteome_*.fasta
 do
 name=$(echo $file | cut -d "." -f 1 | cut -d "/" -f 2)
@@ -36,6 +36,6 @@ hsp70Hits=$(cat hsp70results."$name".txt | grep -v "#" | wc -l)
 echo "$name,$mcrAHits,$hsp70Hits" >> summaryOutput.csv
 done
 
-# cut summary output to include only proteomes with mcrA genes, sort by highest copies of hsp70 gene, store in final text file
-cat summaryOutput.csv | sort -t , -n -r -k 2 | head -n 16 | sort -t , -n -r -k 3 >> bestproteomes.txt
+# include only proteomes with mcrA genes, sort by highest copies of hsp70 gene, store in final text file
+cat summaryOutput.csv | sort -t , -n -r -k 2 | head -n 16 | sort -t , -n -r -k 3 >> pHresistantProteomes.txt
 
