@@ -69,11 +69,13 @@ sed -i -e "s/searchresults\///g" -e "s/.fasta.mcrA//g" mcrAproteome_hits.txt
 
 # prints all candidate pH-resistant methanogens into one file
 
-grep -v "#" searchresults/*.hsp70 | grep -o "proteome_[0-9][0-9]" | sort | uniq > $9
-grep -v	"#" searchresults/*.mcrA | grep -o "proteome_[0-9][0-9]" | sort | uniq > $10
+grep -v "#" searchresults/*.hsp70 | grep -o "proteome_[0-9][0-9]" | sort | uniq >> $9
+grep -v	"#" searchresults/*.mcrA | grep -o "proteome_[0-9][0-9]" | sort | uniq >> $10
 
-cat $9 $10 > $11 
-cat $11 | sort | uniq -d > CANDIDATES.txt
+cat $9 $10 >> $11 
+cat $11 | sort | uniq -d >> CANDIDATES.txt
 
 # outputs from above: hsp70proteomes.txt($9) mcrAproteomes.txt($10) allproteomes.txt($11) CANDIDATES.txt
+# concentrates mcrAproteome_hits.txt hsp70proteome_hits.txt and CANDIDATES.txt to get gene hits and corresponding proteomes
 
+cat hsp70proteome_hits.txt mcrAproteome_hits.txt CANDIDATES.txt >> ForSubmission
