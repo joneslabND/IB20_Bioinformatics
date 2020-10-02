@@ -22,14 +22,11 @@ done
 # create hsp70 gene search image
 ~/Private/bin/bin/hmmbuild hsp70searchimage.hmm alignedhsp70genes.fasta
 
-# search proteomes for mcrA image
+# search proteomes for mcrA image and hsp70 image
 for file in proteomes/proteome_*.fasta
 do
 ~/Private/bin/bin/hmmsearch --tblout mcrAresults.fasta mcrAsearchimage.hmm $file
-done
-
-# search proteomes for hsp70 image
-for file in proteomes/proteome_*.fasta
-do
 ~/Private/bin/bin/hmmsearch --tblout hsp70results.fasta hsp70searchimage.hmm $file
 done
+
+# count hits
