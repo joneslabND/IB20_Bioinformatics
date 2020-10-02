@@ -1,4 +1,4 @@
-#This shell script is to look for two genes in any target species.
+#This shell script called FinalBioinformaticsProject.sh is to look for two genes in any target species.
 #Arguments within the shell script are as follows $1=hsp70*.fasta reference genes, $2=mcr*.fasta reference genes, $3=proteome*.fasta target genes.
 #The output containing target species with both reference genes will be presented in a table.
 
