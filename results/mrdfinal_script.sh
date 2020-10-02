@@ -39,9 +39,10 @@ mkdir hsp_results
 cp ../proteomes/*.fasta .
 for proteome in *.fasta
 do
-#proteome=$(echo ${variable} | cut -d / -f 3 | cut -d . -f 1)
 ~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/$proteome.txt aligned_hsp_refs_profile.hmm "$proteome"
 ~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/$proteome.txt aligned_mcrA_refs_profile.hmm "$proteome"
 done
+
+rm *.fasta
 
 echo "All done!!"
