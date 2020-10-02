@@ -1,3 +1,8 @@
+
+#run from within ref_sequences directory
+#usage: bash finalScript.sh
+
+
 #combines all hsp70 gene reference files into one fasta file
 for num in {01..22}
 do
