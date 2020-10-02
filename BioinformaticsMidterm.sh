@@ -3,8 +3,8 @@
 #This script broadly does 3 things: 1) uses muscle to align the hsp genes and the McrA genes 2) uses hmmbuild to ... 3) uses hmmsearch to search the 50 proteomes for matches for the hsp and McrA genes
 #Useage: bash BioinformaticsMidterm.sh hsp70gene* mcrA* filetable
 
-cat $1 > allhsp.fasta
-cat $2 > allmcrA.fasta
+cat ref_sequences/$1 > allhsp.fasta
+cat ref_sequences/$2 > allmcrA.fasta
 
 #The above 2 lines of code compile all hsp70gene files into one file and all mcrA files into another separate file
 #variables are included to make the script more flexible   
@@ -19,11 +19,11 @@ cat $2 > allmcrA.fasta
 
 #The above 2 lines of code are used to build an hmm profile for hsp and mcrA 
 
-cd proteome
+cd proteomes
 for file in *.fasta
 do
-	./hmmsearch --tblout ${file}_table1 resultshsp $file
-	./hmmsearch --tblout ${file}_table2 resultsmrcA $file
+	../hmmsearch --tblout ${file}_table1 ../resultshsp $file
+	../hmmsearch --tblout ${file}_table2 ../resultsmcrA $file
 done
 
 #The above for loop executes a hmmsearch and outputs the results to a table. The end result of this code creates 100 tables - 2 for each unique protemone (one for hsp70gene and one for mrcA)
