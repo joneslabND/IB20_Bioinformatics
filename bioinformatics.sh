@@ -28,11 +28,11 @@ echo "proteome, mcrA_Hits, hsp70_Hits" > summaryOutput.csv
 # search proteomes for mcrA image and hsp70 image
 for file in proteomes/proteome_*.fasta
 do
-name = $(echo $file | cut -d "." -f 1 | cut -d "/" -f 2)
+name=$(echo $file | cut -d "." -f 1 | cut -d "/" -f 2)
 ~/Private/bin/bin/hmmsearch --tblout mcrAresults."$name".txt mcrAsearchimage.hmm $file
 ~/Private/bin/bin/hmmsearch --tblout hsp70results."$name".txt hsp70searchimage.hmm $file
-mcrAHits = $(cat mcrAresults."$name".txt | grep -v "#" | wc -l)
-hsp70Hits = $(cat hsp70results."$name".txt | grep -v "#" | wc -l)
+mcrAHits=$(cat mcrAresults."$name".txt | grep -v "#" | wc -l)
+hsp70Hits=$(cat hsp70results."$name".txt | grep -v "#" | wc -l)
 echo "$name,$,$" >> summaryOutput.csv
 done
 
