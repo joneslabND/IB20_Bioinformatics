@@ -1,6 +1,4 @@
 # This is the final script for the Bioinformatics project
-# Your muscle tool should be in the folder ~/bin/<muscletool>
-# Your hmmer tools should be in the folder ~/bin/hmmer/bin/<hmmertool>
 # Usage: bash final_script.sh
 #run from ~/Private/IB20_Bioinformatics/results
 
@@ -32,23 +30,16 @@ done
 ~/bin/hmmer/bin/hmmbuild ./aligned_mcrA_refs_profile.hmm ./aligned_mcrA_refs.txt
 
 # This part runs an hmmsearch
-# DOES NOT WORK AT THE MOMENT
-
 rm -r mcrA_results
 rm -r hsp_results
 mkdir mcrA_results
 mkdir hsp_results
-for variable in ../proteomes/"*.fasta"
-do
-proteome=$(echo ${variable} | cut -d / -f 3 | cut -d . -f 1)
-~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/hspsearch_"$proteome"_result.txt aligned_hsp_refs_profile.hmm "$variable"
-~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/mcrAsearch_"$proteome"_result.txt aligned_mcrA_refs_profile.hmm "$variable"
-mv ../proteomes/*.fasta .
+cp ../proteomes/*.fasta .
 for proteome in *.fasta
 do
 #proteome=$(echo ${variable} | cut -d / -f 3 | cut -d . -f 1)
-~/bin/hmmer/bin/hmmsearch aligned_hsp_refs_profile.hmm "$proteome" >> $proteome.txt
-~/bin/hmmer/bin/hmmsearch aligned_mcrA_refs_profile.hmm "$proteome" >> $proteome.txt
+~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/$proteome.txt aligned_hsp_refs_profile.hmm "$proteome"
+~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/$proteome.txt aligned_mcrA_refs_profile.hmm "$proteome"
 done
 
 echo "All done!!"
