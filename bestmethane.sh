@@ -25,3 +25,9 @@ do
 ~/bin/hmmer-3.3.1/src/hmmsearch --tblout table$file hspHMM.fasta $file
 done
 
+for result in tableproteome_[0-9]{2}.fasta
+do
+	"matchnum" =$(cat $result | grep -E ^[^"#"]| wc -l)
+	echo "$result , $matchnum "
+done
+  
