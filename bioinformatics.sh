@@ -103,7 +103,9 @@ cd ..
 
 cut -d "," -f 2 mcramatches.txt | paste -d, hsp70matches.txt - | sed 's/.fasta.hsp70txt//' > finalmatches.txt  
 
-#this searches for all of the proteomes that have 0 matches with either the mcra or hsp70 gene, in which case, they are not returned. Thus a final list of recommended proteomes that has matches with both mcra and hps70 is put into finalproteomelist.txt
+#this searches for all of the proteomes that have 0 matches with either the mcra or hsp70 gene,
+#in which case, they are not returned. Thus a final list of recommended proteomes that has 
+#matches with both mcra and hps70 is put into finalproteomelist.txt
 
 cat finalmatches.txt | grep -v " 0" | cut -d "," -f 1 | sed 's/.fasta.hsp70txt//' > finalproteomelist.txt
 
