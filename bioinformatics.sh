@@ -3,12 +3,18 @@
 #matches. These matches will tell you whether or not the proteomes will carry both of the genes you
 #are looking for. 
 
-#usage: bash bioinformatics.sh  
+#usage: bash bioinformatics.sh  directory1 directory2
 
 #We created two separate directories to hold the results from using the Bioinformatics tools of 
 #muscle and hmmr (build and search). The files contained in those will be used in a for loop that
 #will produce a file that will only contain the proteome files that have matches in both genes of 
 #interest.
+
+#directory 1 is the directory in which the muscle alignment and hidden markov model for the hsp70 gene will be placed, as well as the combined reference code for the hsp70 genes
+#directory 2 is the directory in which the muscle alignment and the hidden markov model for the mcra gene will be placed, as well as the combined reference code for the mcra gene
+
+
+#ensure	reference sequences are	in the ref_sequences directory,	and make sure that proteome sequences are in the proteome directory
 
 #Within these directories, we ran the muscle tool and hmmr tools to produce all of our outputs that
 #we need to go into our for loop as inputs.
