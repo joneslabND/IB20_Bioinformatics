@@ -2,6 +2,8 @@
 #run from within ref_sequences directory
 #usage: bash finalScript.sh
 
+#Copy contents of proteomes to ref_sequences
+cp -R ../proteomes/* ../ref_sequences
 
 #combines all hsp70 gene reference files into one fasta file
 for num in {01..22}
