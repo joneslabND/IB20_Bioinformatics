@@ -1,0 +1,16 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_010937085.1       -          aligned_hsp_refs     -           1.3e-280  928.4  26.7  6.4e-251  830.3  19.6   2.0   1   1   1   2   2   2   2 molecular chaperone DnaK 
+WP_010936122.1       -          aligned_hsp_refs     -            0.00098   13.8   0.1    0.0015   13.2   0.1   1.4   1   0   0   1   1   1   1 cell division protein FtsA 
+WP_010936412.1       -          aligned_hsp_refs     -             0.0011   13.6   0.1     0.002   12.8   0.1   1.3   1   0   0   1   1   1   1 cell division protein FtsA 
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      aligned_hsp_refs_profile.hmm
+# Target file:     proteome_10.fasta
+# Option settings: /afs/crc.nd.edu/user/m/mdonahu4/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/proteome_10.fasta.txt aligned_hsp_refs_profile.hmm proteome_10.fasta 
+# Current dir:     /afs/crc.nd.edu/user/m/mdonahu4/Private/IB20_Bioinformatics/results
+# Date:            Fri Oct  2 00:33:28 2020
+# [ok]
