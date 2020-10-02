@@ -1,0 +1,13 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      ../ref_sequences/mcrAgenehmmr.txt
+# Target file:     proteome_37.fasta
+# Option settings: ../../bin/hmmsearch --tblout proteomemcrA/mcrAproteome_37.fasta.txt ../ref_sequences/mcrAgenehmmr.txt proteome_37.fasta 
+# Current dir:     /afs/crc.nd.edu/user/l/lklein1/Private/IB20_Bioinformatics/proteomes
+# Date:            Thu Oct  1 16:28:10 2020
+# [ok]
