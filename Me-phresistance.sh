@@ -20,17 +20,23 @@
 #of the specific alignment and the path I used is from the tool directory to the proteomes
 #directory)
 
-for proteome in ../proteomes/*.fasta
-do
-~/hmmsearch --tblout $proteome.hmmtxt HMMmodelhsp70gene.afa $proteome
-done
+#mkdir hmmsearches
+#cd proteomes
+#for proteome in *.fasta
+#do
+#cd ..
+#~/hmmsearch --tblout hmmsearches/$proteome.hmmtxt hsp70outputs/HMMmodelhsp70gene.afa proteomes/$proteome
+#cd proteomes
+#done
 
-
-#echo hspfile, number of matches >hsp70matches.txt
-for proteomefile in ../proteomes/*fasta.hmmtxt
+echo hspfile, number of matches >hsp70matches.txt
+cd hmmsearches
+for proteomefile in *fasta.hmmtxt
 do
-var1="cat $proteomefile | grep ^WP_ | wc -l" 
+var1=`cat $proteomefile | grep ^WP_ | wc -l` 
+cd ..
 echo "$proteomefile, $var1" >>hsp70matches.txt
+cd hmmsearches
 done
 
 
