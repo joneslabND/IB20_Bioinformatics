@@ -7,6 +7,7 @@
 # sequence folders in your current directory
 rm hsp70ref.fasta
 rm mcrAref.fasta
+# rm proteomesOfInterest.txt - for when we generate the text file at the end
 
 # Merge reference sequences into a single file
 for file in ref_sequences/hsp70gene_*.fasta
