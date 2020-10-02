@@ -24,12 +24,12 @@ cd ../working_files
 #find proteomes with gene_1 matches
 ../../bin/./muscle -in "$1"sequences.fasta -out "$1"genefull_alignment
 ../../bin/./hmmbuild "$1"gene_build "$1"genefull_alignment
-../../bin/./hmmsearch --tblout "$1"_match.tbl "$1"gene_build ../proteomes/proteomedatabase.fasta 
+../../bin/./hmmsearch --tblout "$1"match.tbl "$1"gene_build ../proteomes/proteomedatabase.fasta 
 
 # find proteomes with gene_2 matches
 ../../bin/muscle -in "$2"sequences.fasta -out "$2"genefull_alignment
 ../../bin/hmmbuild "$2"gene_build "$2"genefull_alignment
-../../bin/hmmsearch --tblout "$2"_match.tbl "$2"gene_build ../proteomes/proteomedatabase.fasta
+../../bin/hmmsearch --tblout "$2"match.tbl "$2"gene_build ../proteomes/proteomedatabase.fasta
 
 # create text files with candidates for each gene
 grep -v "#" "$1"_match.tbl | cut -d "_" -f 1,2 | tr -d "WP" > "$1"candidates.txt
