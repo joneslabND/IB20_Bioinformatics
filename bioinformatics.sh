@@ -111,7 +111,7 @@ cat finalmatches.txt | grep -v " 0" | cut -d "," -f 1 | sed 's/.fasta.hsp70txt//
 
 
 #output: final matches.txt contains the list of proteomes with the number of hsp70 matches in the
-$first column and the number of mcra matches in the second column for each proteome
+#first column and the number of mcra matches in the second column for each proteome
 
 #output: finalproteomelist.txt contains the list of proteomes that has matches with both genes 
 #and is therefore recommended for this project
