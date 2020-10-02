@@ -5,6 +5,8 @@
 
 # Make sure you have muscle, hmmsearch, hmmbuild, and the proteome and reference
 # sequence folders in your current directory
+
+# remove files that are generated within the script, to avoid soft errors when re-running the script
 rm hsp70ref.fasta
 rm mcrAref.fasta
 # rm proteomesOfInterest.txt - for when we generate the text file at the end
