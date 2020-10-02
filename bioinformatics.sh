@@ -33,7 +33,7 @@ name=$(echo $file | cut -d "." -f 1 | cut -d "/" -f 2)
 ~/Private/bin/bin/hmmsearch --tblout hsp70results."$name".txt hsp70searchimage.hmm $file
 mcrAHits=$(cat mcrAresults."$name".txt | grep -v "#" | wc -l)
 hsp70Hits=$(cat hsp70results."$name".txt | grep -v "#" | wc -l)
-echo "$name,$,$" >> summaryOutput.csv
+echo "$name,$mcrAHits,$hsp70Hits" >> summaryOutput.csv
 done
 
 # count hits
