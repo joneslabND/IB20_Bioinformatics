@@ -19,10 +19,12 @@ cat "$1"/hsp70gene_*.fasta > "$1"/allhsp70.fasta
 #(5) Run a for loop to run the HMM files through each of the proteomes
 echo "proteome mcrA_genes hsp70_genes" > final.txt
 for file in "$4"/proteome_*.fasta
+do
 a=$(echo $file)
 b=$("$5" ./mcrAhmm.fasta $file| grep ">>"| wc -l)
 c=$("$5" ./hsp70hmm.fasta $file| grep ">>"| wc -l)
 echo "$a $b $c" >> final.txt
+done
 #
 #(6) List the most resistant proteomes first
 #All proteomes contain at least one of each gene (mcrA and hsp70)
