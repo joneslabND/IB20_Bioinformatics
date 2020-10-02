@@ -36,12 +36,11 @@ done
 
 mkdir mcrA_results
 mkdir hsp_results
-for variable in ../proteomes/*.fasta
+for variable in ../proteomes/"*.fasta"
 do
 proteome=$(echo ${variable} | cut -d / -f 3 | cut -d . -f 1)
-echo $proteome
-~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/hspsearch_$proteome_result.txt aligned_hsp_refs_profile.hmm $variable
-~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/mcrAsearch_$proteome_result.txt aligned_mcrA_refs_profile.hmm $variable
+~/bin/hmmer/bin/hmmsearch --tblout ./hsp_results/hspsearch_"$proteome"_result.txt aligned_hsp_refs_profile.hmm "$variable"
+~/bin/hmmer/bin/hmmsearch --tblout ./mcrA_results/mcrAsearch_"$proteome"_result.txt aligned_mcrA_refs_profile.hmm "$variable"
 done
 
 echo "All done!!"
