@@ -27,7 +27,7 @@ done
 #We reverse grep to eliminate all header and footer text, which begins with # 
 for hmmfile in proteomes/*.hmm
 do
-  	cat $hmmfile | grep -v "#" | wc -l >> hsphits.txt
+  	hsphit=$(cat $hmmfile | grep -v "#" | wc -l)
 done
 
 
@@ -37,39 +37,47 @@ done
 
 # one reference file created with all mcrA data
 
-for file in ref_sequences/mcrAgene_*.fasta 
-
+for file in ref_sequences/mcrA*.fasta 
 do
+<<<<<<< HEAD
 
     cat ${file}.mrcA >> mrcA.ref
 
+=======
+    cat $file >> mrcA.ref
+>>>>>>> 0efa491f5deb2ad46bddc8e851be589bb2d92000
 done
-
-
 
 # muscle used to align reference sequences of the mcrA gene
 
 ~/Private/bin/muscle -in mrcA.ref -out mrcA.alignment
 
-
-
 # hmmer used to build a profile from this alignment
 
-~/Private/bin/hmmer/hmmbuild mrcA.profile mrcA.alignment
-
-
+~/Private/bin/hammer/hmmbuild mrcA.profile mrcA.alignment
 
 # hmmsearch used to search each genome for all 50 proteomes with build profile
 
 # file with .hmm for each proteome created with for loop
 
 for file in proteomes/*.fasta
-
 do
+<<<<<<< HEAD
 
      ../bin/hmmer/hmmsearch --tblout "${file.mrcA}" mrcA.profile $file
 
+=======
+	../bin/hammer/hmmsearch -—tblout $file.hmm  mrcA.profile  $file
+>>>>>>> 0efa491f5deb2ad46bddc8e851be589bb2d92000
+done
+
+for hmmfile in proteomes/*.hmm
+do
+	mrchit=$(cat $hmmfile | grep -v "#" | wc -l)
 done
 
 
-
+for num in {01..50}
+do
+	echo proteome_$num,$hsphit,$mrchit >> table.csv
+done
