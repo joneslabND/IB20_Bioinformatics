@@ -41,7 +41,7 @@ for file in ref_sequences/mcrAgene_*.fasta
 
 do
 
-    cat $file >> mrcA.ref
+    cat ${file}.mrcA >> mrcA.ref
 
 done
 
@@ -67,7 +67,7 @@ for file in proteomes/*.fasta
 
 do
 
-     ../bin/hmmer/hmmsearch —tblout $file.hmm mrcA.profile $file
+     ../bin/hmmer/hmmsearch --tblout "${file.mrcA}" mrcA.profile $file
 
 done
 
