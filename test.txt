@@ -1,0 +1,6 @@
+#combine all of first ref into one file 
+
+for file in ref_sequences/hsp*.fasta
+do 
+	cat $file >> hsp.refs
+done

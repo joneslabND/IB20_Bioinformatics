@@ -1,0 +1,77 @@
+#shell script to search each genome for the
+#genes of interest, MrcA and HSP70,  along with production of a summary table collating the results of all
+#searches
+
+
+#HSP references combined into one ref file, muscle used to build alignment from this reference file
+for file in ref_sequences/hsp*.fasta
+do
+	cat $file  >> hsp.ref
+done
+
+~/Private/bin/muscle -in hsp.ref -out hsp.alignment
+
+#now hmmer can be used to build a profile from this alignment
+~/Private/bin/hmmer/hmmbuild hsp.profile hsp.alignment
+
+#using hmmsearch to query each genome for all 50 proteomes with built profile
+#for loop allows us to create a file with .hmm for each proteome
+
+for file in proteomes/*.fasta
+do
+  	~Private/bin/hmmer/hmmsearch --tblout ${file}.hsp hsp.profile  $file
+done
+
+#it is known that pH resistance can be identified by the number of copies of the
+#HSP70 gene. Hmmsearch presents each copy on a new line, so we can simply count the number of hits for each proteome with wc 
+#We reverse grep to eliminate all header and footer text, which begins with # 
+for hmmfile in proteomes/*.hsp
+do
+  	hsphit=$(cat $hmmfile | grep -v "#" | wc -l)
+done
+
+
+#for mrca, we can do pretty much same as above but instead of using grep -v # and word count we need 
+#to grep for the gene "methyl-coenzyme M reductase" for the proteomes
+
+
+# one reference file created with all mcrA data
+
+for file in ref_sequences/mcrA*.fasta 
+do
+    cat file.mrcA >> mrcA.ref
+
+done
+
+# muscle used to align reference sequences of the mcrA gene
+
+~/Private/bin/muscle -in mrcA.ref -out mrcA.alignment
+
+# hmmer used to build a profile from this alignment
+
+~/Private/bin/hmmer/hmmbuild mrcA.profile mrcA.alignment
+
+# hmmsearch used to search each genome for all 50 proteomes with build profile
+
+# file with .hmm for each proteome created with for loop
+
+for file in proteomes/*.fasta
+do
+
+     ~/Private/bin/hmmer/hmmsearch --tblout ${file}.mrcA mrcA.profile $file
+done
+
+#now grep for gene, if present wc -l will give 1 if present and 0 if not
+for hmmfile in proteomes/*.mrcA
+do
+	mrchit=$(cat $hmmfile | grep "methyl-coenzyme M reductase" | wc -l)
+done
+
+#building csv results table 
+for num in {01..50}
+do
+	echo proteome_$num,$hsphit,$mrchit >> table.csv
+done
+
+#text file with candidates, all 0s denote no copies of hsp  gene or mrcA gene so they are removed
+cat table.csv | grep -v "0" | cut -d "," -f 1 > candidates.txt
