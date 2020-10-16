@@ -1,0 +1,58 @@
+#shell script to search for pH-resistant methanogenic Archaea using two genes of interest, HSP70 and mrcA, to select best potential candidates with results summarized in table format
+
+#colonies with matches for HSP70 gene combined into one reference file with muscle used to build alignment
+
+do
+cat $file >> hsp.ref
+done
+
+~/bin/IB20_Bioinformatics/muscle -in hsp.ref -out hsp.alignment
+
+#use hmmer to to build profile from muscle alignment
+
+~/bin/IB20_Bioinformatics/hmmbuild hsp.profile hsp.alignment
+
+#use for loop so hmmer searches the 50 proteome profiles and creates .hmm files for each one
+for file in preoteomes/*.fasta
+do
+~bin/IB20_Bioinformatics/hmmsearch --tblout ${file}.hsp hsp.profile $file
+done
+
+#pH resistance is correlated with presence of hsp70 gene. Use word count to count number of matches for each proteome from hmmsearch. Use reverse grep to clean up irrevelant lines beginning with "#"
+for hmmfile in proteomes/*.hsp
+do
+hspmatch=$(cat $hmmfile | grep -v "#" | wc -l"
+done
+
+#process above is used again to find copies of methyl coenzyme M reducatse (mrcA) gene in proteomes to find methanogens
+
+for file in ref_sequences/mrcA*.fasta
+do
+cat $file >> mrcA.ref
+done
+
+~/bin/IB20_Bioinformatics/muscle -in mrcA.ref -out mrcA.alignment
+
+~/bin/IB20_Bioinformatics/hmmbuild mrcA.profile mrcA.alignment
+
+for file in proteomes/*.fasta
+do
+~/bin/IB20_Bioinformatics/hmmsearch --tblout ${file}.mrcA mrcA.profile $file
+done
+
+#grep is used to search for "methyl-coenzyme M reductase" and word count is again used to count number of matches within file text
+for hmmfile in proteomes/*.mrcA
+do
+mrcAmatch=$(cat $hmmfile | grep "methyl-coenzyme M reductase" | wc -l)
+done
+
+#now build summary table collating results of all searches
+for num in {01..50}
+do
+echo proteomes_$num, $hspmatch, $mrcAmatch >> searchsum.csv
+done
+
+#write text file of names of pH-resistant methanogens to examine further in research
+#all 0s signify absence of hsp and mrcA genes, so they are removed
+
+cat searchsum.csv | grep -v "0" | cut -d "," -f > promisingproteomes.txt
